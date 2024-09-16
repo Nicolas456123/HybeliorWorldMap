@@ -1,0 +1,18 @@
+<html>
+<head>
+ <title>OSR Dungeon</title>
+  <script src="./openseadragon-bin-5.0.0/openseadragon.min.js"></script>
+  <script src="./openseadragon-bookmark-url.js"></script>
+</head>
+
+<body>
+<div id="openseadragon1" style="width: calc(100% - 20px); height: calc(100% - 20px);"></div>
+<script type="text/javascript">
+  var viewer = OpenSeadragon({
+    id: "openseadragon1",
+    prefixUrl: "./images/",
+    tileSources: "./MyResultingDZI.dzi"
+  });
+</script>
+</body>
+</html>
