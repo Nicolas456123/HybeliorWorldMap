@@ -1,63 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hybelior World Map</title>
     <script src="./openseadragon-bin-5.0.0/openseadragon.min.js"></script>
-    <script src="./openseadragon-bin-5.0.0/openseadragon-bookmark-url.js"></script>
+    <script src="./openseadragon-bin-5.0.0/openseadragon-svg-overlay.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <style>
-        .ville-overlay {
+        /* Importation de la police Copperplate-Gothic-Std-29-AB */
+        @font-face {
+            font-family: 'Copperplate Gothic Std';
+            src: url('./Font/Copperplate-Gothic-Std-33-BC.ttf') format('truetype');
+        }
+
+        /* Style pour les boutons */
+        .controls {
             position: absolute;
+            top: 100px;
+            left: 10px;
+            z-index: 1000;
+        }
+        .controls button {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #007bff;
             color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 2px 5px;
-            border-radius: 3px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style pour la fenêtre d'information */
+        .info-panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            height: auto;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: 'Copperplate Gothic Std', sans-serif;
+            display: none; /* Caché par défaut */
+        }
+
+        .info-panel h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .info-panel p {
             font-size: 14px;
+            color: #666;
         }
     </style>
 </head>
+
 <body>
-    <div id="openseadragon1" style="width: calc(100% - 20px); height: calc(100% - 20px);"></div>
+<div class="controls">
+    <button id="toggleImage">Toggle Image</button>
+    <button id="toggleText">Toggle Text</button>
+</div>
+<div id="openseadragon1" style="width: calc(100% - 20px); height: calc(100% - 20px);"></div>
 
-    <script type="text/javascript">
-        var viewer = OpenSeadragon({
-            id: "openseadragon1",
-            prefixUrl: "./images/",
-            tileSources: "./Hybelior100Dz.dzi"
-        });
+<!-- Fenêtre d'information pour afficher les détails de la ville -->
+<div id="infoPanel" class="info-panel">
+    <span id="closeInfoPanel" style="position:absolute; top:10px; right:10px; cursor:pointer; font-weight:bold;">&times;</span>
+    <h2 id="cityName">Nom de la ville</h2>
+    <p id="cityInfo">Texte placeholder pour l'information sur la ville...</p>
+</div>
 
-        function convertCoordinates(x, y) {
-            return {
-                x: (x + 1000) / 2000,
-                y: (y + 1000) / 2000
-            };
-        }
 
-        Papa.parse("./Data/DT_Villes.csv", {
+<script type="text/javascript">
+    var viewer = OpenSeadragon({
+        id: "openseadragon1",
+        prefixUrl: "./images/",
+        tileSources: "./Hybelior100Dz.dzi"
+    });
+	
+	document.getElementById('closeInfoPanel').addEventListener('click', function() {
+		document.getElementById('infoPanel').style.display = 'none';
+	});
+
+
+    // Ajouter l'overlay SVG
+    var svgOverlay = viewer.svgOverlay();
+
+    // Ajouter l'image Region.png (désactivée par défaut)
+    var imageElement = document.createElementNS("http://www.w3.org/2000/svg", "image");
+    imageElement.setAttributeNS("http://www.w3.org/1999/xlink", "href", "./Data/Region.png");
+    imageElement.setAttribute("x", 0);
+    imageElement.setAttribute("y", 0);
+    imageElement.setAttribute("width", 1);  // Taille relative de l'image (ajuster si nécessaire)
+    imageElement.setAttribute("height", 1); // Taille relative de l'image (ajuster si nécessaire)
+    imageElement.setAttribute("opacity", 0.5);  // Transparence de l'image
+    imageElement.style.display = 'none'; // Image désactivée par défaut
+    svgOverlay.node().appendChild(imageElement);
+
+    var textElements = []; // Array pour stocker les éléments de texte
+
+    // Fonction de conversion des coordonnées pour les adapter à OpenSeadragon
+    function convertCoordinates(x, y) {
+        return {
+            x: (x + 525.8) / 1047,  // Ajustement des coordonnées
+            y: (y + 532.8) / 1047
+        };
+    }
+
+    // Fonction pour ajouter du texte à partir d'un fichier CSV
+    function addTextFromCSV(filePath, fontSize) {
+        Papa.parse(filePath, {
             download: true,
             header: true,
             complete: function(results) {
-                var villes = results.data;
-                villes.forEach(function(ville) {
-                    var x = parseFloat(ville.Coord_X);
-                    var y = parseFloat(ville.Coord_Y);
+                results.data.forEach(function(item) {
+                    var x = parseFloat(item.Coord_X);
+                    var y = parseFloat(item.Coord_Y);
                     var convertedCoord = convertCoordinates(x, y);
 
-                    // Création de l'élément div pour la ville
-                    var element = document.createElement('div');
-                    element.className = 'ville-overlay';
-                    element.innerText = ville[''];
+                    // Calcul dynamique de l'épaisseur du contour en fonction de la taille du texte
+                    var strokeWidth = fontSize * 0.06;
 
-                    // Ajout de la superposition sur la carte
-                    viewer.addOverlay({
-                        element: element,
-                        location: new OpenSeadragon.Rect(convertedCoord.x, convertedCoord.y, 0, 0)
+                    // Création d'un groupe SVG pour contenir le texte
+                    var groupElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                    groupElement.setAttribute("transform", "translate(" + convertedCoord.x + "," + convertedCoord.y + ")");
+
+                    // Création et configuration de l'élément texte SVG
+                    var textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    textElement.setAttribute("x", 0);
+                    textElement.setAttribute("y", 0);
+                    textElement.setAttribute("fill", "white"); // Couleur du texte
+                    textElement.setAttribute("stroke", "black"); // Couleur du contour du texte
+                    textElement.setAttribute("stroke-width", strokeWidth); // Épaisseur du contour
+                    textElement.setAttribute("font-size", fontSize); // Taille de la police
+                    textElement.setAttribute("text-anchor", "middle"); // Centrage du texte
+                    textElement.setAttribute("font-family", "Copperplate Gothic Std, sans-serif"); // Police personnalisée
+                    textElement.textContent = item[''];  // Texte provenant du CSV
+
+                    // Ajouter le texte au groupe
+                    groupElement.appendChild(textElement);
+
+                    // Ajouter un gestionnaire de clic pour afficher les infos de la ville
+                    var tracker = new OpenSeadragon.MouseTracker({
+                        element: groupElement,
+                        clickHandler: function(event) {
+                            event.preventDefaultAction = true; // Empêche le zoom
+                            document.getElementById('cityName').textContent = item['']; // Nom de la ville
+                            document.getElementById('cityInfo').textContent = "Texte placeholder pour " + item[''] + "."; // Texte placeholder
+                            document.getElementById('infoPanel').style.display = 'block'; // Afficher la fenêtre d'information
+                        }
                     });
+
+                    tracker.setTracking(true);
+
+                    // Ajouter le groupe à l'overlay SVG
+                    svgOverlay.node().appendChild(groupElement);
+                    textElements.push(groupElement);  // Stockage de l'élément texte
                 });
             }
         });
-    </script>
+    }
+
+    // Ajouter les villes, cités et villages avec des tailles de texte différentes
+    addTextFromCSV("./Data/DT_Villes.csv", "0.0011");   // Texte pour les villes
+    addTextFromCSV("./Data/DT_Cites.csv", "0.0015");    // Texte pour les cités
+    addTextFromCSV("./Data/DT_Villages.csv", "0.0006"); // Texte pour les villages
+
+    // Gestion des boutons pour activer/désactiver l'image et le texte
+    document.getElementById('toggleImage').addEventListener('click', function() {
+        if (imageElement.style.display === 'none') {
+            imageElement.style.display = 'block';
+        } else {
+            imageElement.style.display = 'none';
+        }
+    });
+
+    document.getElementById('toggleText').addEventListener('click', function() {
+        textElements.forEach(function(groupElement) {
+            if (groupElement.style.display === 'none') {
+                groupElement.style.display = 'block';
+            } else {
+                groupElement.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
 </html>
