@@ -1,18 +1,63 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
- <title>Hybelior World Map</title>
-  <script src="./openseadragon-bin-5.0.0/openseadragon.min.js"></script>
-  <script src="./openseadragon-bin-5.0.0/openseadragon-bookmark-url.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybelior World Map</title>
+    <script src="./openseadragon-bin-5.0.0/openseadragon.min.js"></script>
+    <script src="./openseadragon-bin-5.0.0/openseadragon-bookmark-url.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        .ville-overlay {
+            position: absolute;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+    </style>
 </head>
-
 <body>
-<div id="openseadragon1" style="width: calc(100% - 20px); height: calc(100% - 20px);"></div>
-<script type="text/javascript">
-  var viewer = OpenSeadragon({
-    id: "openseadragon1",
-    prefixUrl: "./images/",
-    tileSources: "./Hybelior100Dz.dzi"
-  });
-</script>
+    <div id="openseadragon1" style="width: calc(100% - 20px); height: calc(100% - 20px);"></div>
+
+    <script type="text/javascript">
+        var viewer = OpenSeadragon({
+            id: "openseadragon1",
+            prefixUrl: "./images/",
+            tileSources: "./Hybelior100Dz.dzi"
+        });
+
+        function convertCoordinates(x, y) {
+            return {
+                x: (x + 1000) / 2000,
+                y: (y + 1000) / 2000
+            };
+        }
+
+        Papa.parse("Data/DT_Villes.csv", {
+            download: true,
+            header: true,
+            complete: function(results) {
+                var villes = results.data;
+                villes.forEach(function(ville) {
+                    var x = parseFloat(ville.Coord_X);
+                    var y = parseFloat(ville.Coord_Y);
+                    var convertedCoord = convertCoordinates(x, y);
+
+                    // Création de l'élément div pour la ville
+                    var element = document.createElement('div');
+                    element.className = 'ville-overlay';
+                    element.innerText = ville[''];
+
+                    // Ajout de la superposition sur la carte
+                    viewer.addOverlay({
+                        element: element,
+                        location: new OpenSeadragon.Rect(convertedCoord.x, convertedCoord.y, 0, 0)
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
