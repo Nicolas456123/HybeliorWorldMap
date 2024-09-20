@@ -114,57 +114,51 @@
 
     // Fonction pour ajouter du texte à partir d'un fichier CSV
     function addTextFromCSV(filePath, fontSize) {
-        Papa.parse(filePath, {
-            download: true,
-            header: true,
-            complete: function(results) {
-                results.data.forEach(function(item) {
-                    var x = parseFloat(item.Coord_X);
-                    var y = parseFloat(item.Coord_Y);
-                    var convertedCoord = convertCoordinates(x, y);
+    Papa.parse(filePath, {
+        download: true,
+        header: true,
+        complete: function(results) {
+            results.data.forEach(function(item) {
+                var x = parseFloat(item.Coord_X);
+                var y = parseFloat(item.Coord_Y);
+                var convertedCoord = convertCoordinates(x, y);
 
-                    // Calcul dynamique de l'épaisseur du contour en fonction de la taille du texte
-                    var strokeWidth = fontSize * 0.06;
+                // Calcul dynamique de l'épaisseur du contour en fonction de la taille du texte
+                var strokeWidth = fontSize * 0.06;
 
-                    // Création d'un groupe SVG pour contenir le texte
-                    var groupElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                    groupElement.setAttribute("transform", "translate(" + convertedCoord.x + "," + convertedCoord.y + ")");
+                // Création du texte SVG sans le groupe <g>
+                var textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                textElement.setAttribute("x", convertedCoord.x);
+                textElement.setAttribute("y", convertedCoord.y);
+                textElement.setAttribute("fill", "white"); // Couleur du texte
+                textElement.setAttribute("stroke", "black"); // Couleur du contour du texte
+                textElement.setAttribute("stroke-width", strokeWidth); // Épaisseur du contour
+                textElement.setAttribute("font-size", fontSize); // Taille de la police
+                textElement.setAttribute("text-anchor", "middle"); // Centrage du texte
+                textElement.setAttribute("font-family", "Copperplate Gothic Std, sans-serif"); // Police personnalisée
+                textElement.setAttribute("pointer-events", "visibleFill"); // Limite la zone cliquable à la zone du texte
+                textElement.textContent = item[''];  // Texte provenant du CSV
 
-                    // Création et configuration de l'élément texte SVG
-                    var textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                    textElement.setAttribute("x", 0);
-                    textElement.setAttribute("y", 0);
-                    textElement.setAttribute("fill", "white"); // Couleur du texte
-                    textElement.setAttribute("stroke", "black"); // Couleur du contour du texte
-                    textElement.setAttribute("stroke-width", strokeWidth); // Épaisseur du contour
-                    textElement.setAttribute("font-size", fontSize); // Taille de la police
-                    textElement.setAttribute("text-anchor", "middle"); // Centrage du texte
-                    textElement.setAttribute("font-family", "Copperplate Gothic Std, sans-serif"); // Police personnalisée
-                    textElement.textContent = item[''];  // Texte provenant du CSV
-
-                    // Ajouter le texte au groupe
-                    groupElement.appendChild(textElement);
-
-                    // Ajouter un gestionnaire de clic pour afficher les infos de la ville
-                    var tracker = new OpenSeadragon.MouseTracker({
-                        element: groupElement,
-                        clickHandler: function(event) {
-                            event.preventDefaultAction = true; // Empêche le zoom
-                            document.getElementById('cityName').textContent = item['']; // Nom de la ville
-                            document.getElementById('cityInfo').textContent = "Texte placeholder pour " + item[''] + "."; // Texte placeholder
-                            document.getElementById('infoPanel').style.display = 'block'; // Afficher la fenêtre d'information
-                        }
-                    });
-
-                    tracker.setTracking(true);
-
-                    // Ajouter le groupe à l'overlay SVG
-                    svgOverlay.node().appendChild(groupElement);
-                    textElements.push(groupElement);  // Stockage de l'élément texte
+                // Ajouter un gestionnaire de clic directement sur l'élément <text>
+                var tracker = new OpenSeadragon.MouseTracker({
+                    element: textElement,
+                    clickHandler: function(event) {
+                        event.preventDefaultAction = true; // Empêche le zoom
+                        document.getElementById('cityName').textContent = item['']; // Nom de la ville
+                        document.getElementById('cityInfo').textContent = "Texte placeholder pour " + item[''] + "."; // Texte placeholder
+                        document.getElementById('infoPanel').style.display = 'block'; // Afficher la fenêtre d'information
+                    }
                 });
-            }
-        });
-    }
+
+                tracker.setTracking(true);
+
+                // Ajouter le texte directement à l'overlay SVG
+                svgOverlay.node().appendChild(textElement);
+                textElements.push(textElement);  // Stockage de l'élément texte
+            });
+        }
+    });
+}
 
     // Ajouter les villes, cités et villages avec des tailles de texte différentes
     addTextFromCSV("./Data/DT_Villes.csv", "0.0011");   // Texte pour les villes
