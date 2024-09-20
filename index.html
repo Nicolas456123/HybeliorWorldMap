@@ -126,22 +126,38 @@
                 // Calcul dynamique de l'épaisseur du contour en fonction de la taille du texte
                 var strokeWidth = fontSize * 0.06;
 
-                // Création du texte SVG sans le groupe <g>
+                // Création d'un groupe SVG pour contenir le texte et le rectangle de fond
+                var groupElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                groupElement.setAttribute("transform", "translate(" + convertedCoord.x + "," + convertedCoord.y + ")");
+
+                // Création et configuration du rectangle de fond (zone cliquable)
+                var backgroundRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                backgroundRect.setAttribute("x", -50);  // Ajustez ces valeurs pour centrer le rectangle sous le texte
+                backgroundRect.setAttribute("y", -fontSize);
+                backgroundRect.setAttribute("width", 100);  // Largeur du rectangle (à ajuster selon la longueur du texte)
+                backgroundRect.setAttribute("height", fontSize + 5);  // Hauteur du rectangle (un peu plus grand que la taille du texte)
+                backgroundRect.setAttribute("fill", "rgba(0, 0, 255, 0.2)");  // Couleur du rectangle avec transparence
+                backgroundRect.setAttribute("pointer-events", "none");  // Le rectangle ne doit pas intercepter les événements de clic
+
+                // Création et configuration de l'élément texte SVG
                 var textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                textElement.setAttribute("x", convertedCoord.x);
-                textElement.setAttribute("y", convertedCoord.y);
+                textElement.setAttribute("x", 0);
+                textElement.setAttribute("y", 0);
                 textElement.setAttribute("fill", "white"); // Couleur du texte
                 textElement.setAttribute("stroke", "black"); // Couleur du contour du texte
                 textElement.setAttribute("stroke-width", strokeWidth); // Épaisseur du contour
                 textElement.setAttribute("font-size", fontSize); // Taille de la police
                 textElement.setAttribute("text-anchor", "middle"); // Centrage du texte
                 textElement.setAttribute("font-family", "Copperplate Gothic Std, sans-serif"); // Police personnalisée
-                textElement.setAttribute("pointer-events", "visibleFill"); // Limite la zone cliquable à la zone du texte
                 textElement.textContent = item[''];  // Texte provenant du CSV
 
-                // Ajouter un gestionnaire de clic directement sur l'élément <text>
+                // Ajouter le rectangle et le texte au groupe
+                groupElement.appendChild(backgroundRect);
+                groupElement.appendChild(textElement);
+
+                // Ajouter un gestionnaire de clic pour afficher les infos de la ville
                 var tracker = new OpenSeadragon.MouseTracker({
-                    element: textElement,
+                    element: groupElement,
                     clickHandler: function(event) {
                         event.preventDefaultAction = true; // Empêche le zoom
                         document.getElementById('cityName').textContent = item['']; // Nom de la ville
@@ -152,9 +168,9 @@
 
                 tracker.setTracking(true);
 
-                // Ajouter le texte directement à l'overlay SVG
-                svgOverlay.node().appendChild(textElement);
-                textElements.push(textElement);  // Stockage de l'élément texte
+                // Ajouter le groupe à l'overlay SVG
+                svgOverlay.node().appendChild(groupElement);
+                textElements.push(groupElement);  // Stockage de l'élément texte
             });
         }
     });
