@@ -139,28 +139,18 @@ function addTextFromCSV(filePath, fontSize) {
 
                 // Calcul de la largeur et de la hauteur du rectangle basé sur le texte
                 var textWidth = item[''].length * fontSize * 0.6; // Ajustez selon votre police
-                var textHeight = fontSize * 0.6; // Ajouter un peu de marge pour le texte
-
-				// Création d'un groupe SVG pour contenir le texte et le rectangle
-                //var groupElement = document.createElementNS("http://www.w3.org/2000/svg", "g");
-                //groupElement.setAttribute("transform", "translate(" + convertedCoord.x + "," + convertedCoord.y + ")");
+                var textHeight = fontSize * 1; // Ajouter un peu de marge pour le texte
 
                 // Création et configuration de l'élément rectangle SVG
                 var rectElement = document.createElementNS("http://www.w3.org/2000/svg", "rect");
                 rectElement.setAttribute("x", convertedCoord.x - textWidth / 2);
-                rectElement.setAttribute("y", convertedCoord.y - textHeight);
+                rectElement.setAttribute("y", convertedCoord.y - textHeight + (fontSize * 0.2));
                 rectElement.setAttribute("width", textWidth);
                 rectElement.setAttribute("height", textHeight);
-                rectElement.setAttribute("fill", "transparent"); // Changez "none" à une couleur si vous voulez le voir
+                rectElement.setAttribute("fill", "black"); // Changez "none" à une couleur si vous voulez le voir
                 rectElement.setAttribute("pointer-events", "all"); // Assure que le rect capte les événements de clic
-
                 
-
-                // Ajouter le rectangle et le texte au groupe
-                //groupElement.appendChild(textElement);
-				//groupElement.appendChild(rectElement);
 				svgOverlay.node().appendChild(rectElement);
-
 				svgOverlay.node().appendChild(textElement); // Le texte est ajouté avant le rect pour apparaître en-dessous
 				
                 // Ajouter un gestionnaire de clic uniquement au rectangle
