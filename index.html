@@ -91,6 +91,7 @@
     var svgOverlay = viewer.svgOverlay();
 
     var textElements = []; // Array pour stocker les éléments de texte
+	var rectElements = []; // Array pour stocker les éléments rectangulaires
 
     // Fonction de conversion des coordonnées pour les adapter à OpenSeadragon
     function convertCoordinates(x, y) {
@@ -138,16 +139,16 @@ function addTextFromCSV(filePath, fontSize) {
                 textElement.textContent = item[''];  // Texte provenant du CSV
 
                 // Calcul de la largeur et de la hauteur du rectangle basé sur le texte
-                var textWidth = item[''].length * fontSize * 0.6; // Ajustez selon votre police
-                var textHeight = fontSize * 1; // Ajouter un peu de marge pour le texte
+                var textWidth = item[''].length * fontSize * 0.7; // Ajustez selon votre police
+                var textHeight = fontSize * 1.1; // Ajouter un peu de marge pour le texte
 
                 // Création et configuration de l'élément rectangle SVG
                 var rectElement = document.createElementNS("http://www.w3.org/2000/svg", "rect");
                 rectElement.setAttribute("x", convertedCoord.x - textWidth / 2);
-                rectElement.setAttribute("y", convertedCoord.y - textHeight + (fontSize * 0.2));
+                rectElement.setAttribute("y", convertedCoord.y - textHeight + (fontSize * 0.3));
                 rectElement.setAttribute("width", textWidth);
                 rectElement.setAttribute("height", textHeight);
-                rectElement.setAttribute("fill", "black"); // Changez "none" à une couleur si vous voulez le voir
+                rectElement.setAttribute("fill", "transparent"); // Changez "none" à une couleur si vous voulez le voir
                 rectElement.setAttribute("pointer-events", "all"); // Assure que le rect capte les événements de clic
                 
 				svgOverlay.node().appendChild(rectElement);
@@ -167,6 +168,7 @@ function addTextFromCSV(filePath, fontSize) {
                 tracker.setTracking(true);
 				
 				textElements.push(textElement);  // Stockage de l'élément texte
+				rectElements.push(rectElement);  // Stockage de l'élément rect
             });
         }
     });
@@ -178,7 +180,7 @@ function addTextFromCSV(filePath, fontSize) {
     // Ajouter les villes, cités et villages avec des tailles de texte différentes
     addTextFromCSV("./Data/DT_Villes.csv", "0.0011");   // Texte pour les villes
     addTextFromCSV("./Data/DT_Cites.csv", "0.0015");    // Texte pour les cités
-    addTextFromCSV("./Data/DT_Villages.csv", "0.0006"); // Texte pour les villages
+    addTextFromCSV("./Data/DT_Villages_Fantasy.csv", "0.0006"); // Texte pour les villages
 
     // Gestion des boutons pour activer/désactiver l'image et le texte
     document.getElementById('toggleText').addEventListener('click', function() {
@@ -187,6 +189,14 @@ function addTextFromCSV(filePath, fontSize) {
                 textElement.style.display = 'block';
             } else {
                 textElement.style.display = 'none';
+            }
+        });
+
+        rectElements.forEach(function(rectElement) {
+            if (rectElement.style.display === 'none') {
+                rectElement.style.display = 'block';
+            } else {
+                rectElement.style.display = 'none';
             }
         });
     });
