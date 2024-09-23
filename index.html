@@ -58,6 +58,11 @@
             font-size: 14px;
             color: #666;
         }
+		
+		#bordersElement {
+		position: absolute;
+		z-index: 10; /* Assurez-vous que la carte a un z-index inférieur */
+	}
     </style>
 </head>
 
@@ -90,8 +95,13 @@
     // Ajouter l'overlay SVG
     var svgOverlay = viewer.svgOverlay();
 
-    var textElements = []; // Array pour stocker les éléments de texte
-	var rectElements = []; // Array pour stocker les éléments rectangulaires
+    // Arrays pour stocker les éléments par type
+    var continentsElements = [];
+    var paysElements = [];
+    var regionElements = [];
+    var villesElements = [];
+    var allTextElements = [];  // Pour toggle global
+    var allRectElements = [];  // Pour toggle des rectangles
 
     // Fonction de conversion des coordonnées pour les adapter à OpenSeadragon
     function convertCoordinates(x, y) {
@@ -101,90 +111,133 @@
         };
     }
 
-function addTextFromCSV(filePath, fontSize) {
-    Papa.parse(filePath, {
-        download: true,
-        header: true,
-        complete: function(results) {
-            results.data.forEach(function(item) {
-                var x = parseFloat(item.Coord_X);
-                var y = parseFloat(item.Coord_Y);
-				
-				if (isNaN(x) || isNaN(y)) {
-					console.error("Invalid coordinate:", x, y);
-					return; // Ignorer cet élément si les coordonnées ne sont pas valides
-				}
-					
-                var convertedCoord = convertCoordinates(x, y);
-				
-				if (isNaN(convertedCoord.x) || isNaN(convertedCoord.y)) {
-					console.error("Converted coordinates are invalid:", convertedCoord);
-					return; // Ignorer cet élément si les coordonnées converties ne sont pas valides
-				}
-
-                // Calcul dynamique de l'épaisseur du contour en fonction de la taille du texte
-                var strokeWidth = fontSize * 0.06;
-				
-				// Création et configuration de l'élément texte SVG
-                var textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                textElement.setAttribute("x", convertedCoord.x);
-                textElement.setAttribute("y", convertedCoord.y);
-                textElement.setAttribute("fill", "white"); // Couleur du texte
-                textElement.setAttribute("stroke", "black"); // Couleur du contour du texte
-                textElement.setAttribute("stroke-width", strokeWidth); // Épaisseur du contour
-                textElement.setAttribute("font-size", fontSize); // Taille de la police
-                textElement.setAttribute("text-anchor", "middle"); // Centrage du texte
-                textElement.setAttribute("font-family", "Copperplate Gothic Std, sans-serif"); // Police personnalisée
-				textElement.setAttribute("pointer-events", "none");
-                textElement.textContent = item[''];  // Texte provenant du CSV
-
-                // Calcul de la largeur et de la hauteur du rectangle basé sur le texte
-                var textWidth = item[''].length * fontSize * 0.7; // Ajustez selon votre police
-                var textHeight = fontSize * 1.1; // Ajouter un peu de marge pour le texte
-
-                // Création et configuration de l'élément rectangle SVG
-                var rectElement = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-                rectElement.setAttribute("x", convertedCoord.x - textWidth / 2);
-                rectElement.setAttribute("y", convertedCoord.y - textHeight + (fontSize * 0.3));
-                rectElement.setAttribute("width", textWidth);
-                rectElement.setAttribute("height", textHeight);
-                rectElement.setAttribute("fill", "transparent"); // Changez "none" à une couleur si vous voulez le voir
-                rectElement.setAttribute("pointer-events", "all"); // Assure que le rect capte les événements de clic
-                
-				svgOverlay.node().appendChild(rectElement);
-				svgOverlay.node().appendChild(textElement); // Le texte est ajouté avant le rect pour apparaître en-dessous
-				
-                // Ajouter un gestionnaire de clic uniquement au rectangle
-                var tracker = new OpenSeadragon.MouseTracker({
-                    element: rectElement,  // Événements de clic seulement sur le rectangle
-                    clickHandler: function(event) {
-                        event.preventDefaultAction = true; // Empêche le zoom
-                        document.getElementById('cityName').textContent = item['']; // Nom de la ville
-                        document.getElementById('cityInfo').textContent = "Texte placeholder pour " + item[''] + "."; // Texte placeholder
-                        document.getElementById('infoPanel').style.display = 'block'; // Afficher la fenêtre d'information
+    function addTextAndRectFromCSV(filePath, fontSize, storageArray, xOffset, yOffset) {
+        Papa.parse(filePath, {
+            download: true,
+            header: true,
+            complete: function(results) {
+                results.data.forEach(function(item) {
+                    var x = parseFloat(item.Coord_X);
+                    var y = parseFloat(item.Coord_Y);
+                    
+                    if (isNaN(x) || isNaN(y)) {
+                        console.error("Invalid coordinate:", x, y);
+                        return; // Ignorer cet élément si les coordonnées ne sont pas valides
                     }
+                    					
+                    var convertedCoord = convertCoordinates(x, y);
+                    
+                    if (isNaN(convertedCoord.x) || isNaN(convertedCoord.y)) {
+                        console.error("Converted coordinates are invalid:", convertedCoord);
+                        return; // Ignorer cet élément si les coordonnées converties ne sont pas valides
+                    }
+
+                    // Calcul dynamique de l'épaisseur du contour en fonction de la taille du texte
+                    var strokeWidth = fontSize * 0.06;
+                    
+                    // Création et configuration de l'élément texte SVG
+                    var textElement = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                    textElement.setAttribute("x", convertedCoord.x + xOffset);
+					textElement.setAttribute("y", convertedCoord.y + yOffset);
+                    textElement.setAttribute("fill", "white"); // Couleur du texte
+                    textElement.setAttribute("stroke", "black"); // Couleur du contour du texte
+                    textElement.setAttribute("stroke-width", strokeWidth); // Épaisseur du contour
+                    textElement.setAttribute("font-size", fontSize); // Taille de la police
+                    textElement.setAttribute("text-anchor", "middle"); // Centrage du texte
+                    textElement.setAttribute("font-family", "Copperplate Gothic Std, sans-serif"); // Police personnalisée
+                    textElement.setAttribute("pointer-events", "none");
+                    textElement.textContent = item[''];  // Texte provenant du CSV
+
+                    // Calcul de la largeur et de la hauteur du rectangle basé sur le texte
+                    var textWidth = item[''].length * fontSize * 0.6; // Ajustez selon votre police
+                    var textHeight = fontSize * 1.1; // Ajouter un peu de marge pour le texte
+
+                    // Création et configuration de l'élément rectangle SVG
+                    var rectElement = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                    rectElement.setAttribute("x", convertedCoord.x + xOffset - textWidth / 2);
+					rectElement.setAttribute("y", convertedCoord.y + yOffset - textHeight + (fontSize * 0.3));
+                    rectElement.setAttribute("width", textWidth);
+                    rectElement.setAttribute("height", textHeight);
+                    rectElement.setAttribute("fill", "transparent"); // Changez "none" à une couleur si vous voulez le voir
+                    rectElement.setAttribute("pointer-events", "all"); // Assure que le rect capte les événements de clic
+
+                    // Ajouter les éléments à l'overlay
+                    svgOverlay.node().appendChild(rectElement);
+                    svgOverlay.node().appendChild(textElement);
+					
+					// Ajouter un gestionnaire de clic uniquement au rectangle
+					var tracker = new OpenSeadragon.MouseTracker({
+						element: rectElement,  // Événements de clic seulement sur le rectangle
+						clickHandler: function(event) {
+							event.preventDefaultAction = true; // Empêche le zoom
+							document.getElementById('cityName').textContent = item['']; // Nom de la ville
+							document.getElementById('cityInfo').textContent = "Texte placeholder pour " + item[''] + "."; // Texte placeholder
+							document.getElementById('infoPanel').style.display = 'block'; // Afficher la fenêtre d'information
+						}
+					});
+
+                    // Stocker les éléments pour une gestion facile
+                    storageArray.push({text: textElement, rect: rectElement});
+                    allTextElements.push(textElement);
+                    allRectElements.push(rectElement);
                 });
+            }
+        });
+    }
 
-                tracker.setTracking(true);
-				
-				textElements.push(textElement);  // Stockage de l'élément texte
-				rectElements.push(rectElement);  // Stockage de l'élément rect
-            });
-        }
+	// Ajouter les textes et rectangles pour les continents, pays, régions et autres en fonction de leur niveau de zoom
+	addTextAndRectFromCSV("./Data/DT_Continents.csv", "0.03", continentsElements, 0.03, 0.02);   // xOffset = -10, yOffset = 5
+	addTextAndRectFromCSV("./Data/DT_Pays.csv", "0.01", paysElements, 0.015, 0.01);   // xOffset = -5, yOffset = 0
+	addTextAndRectFromCSV("./Data/DT_Region.csv", "0.004", regionElements, 0.005, 0.002); // xOffset = 0, yOffset = 0
+	addTextAndRectFromCSV("./Data/DT_Villes.csv", "0.0011", villesElements, 0, 0);   // xOffset = 0, yOffset = 0
+	addTextAndRectFromCSV("./Data/DT_Cites.csv", "0.0015", villesElements, 0, 0);    // xOffset = 0, yOffset = 0
+	addTextAndRectFromCSV("./Data/DT_Villages_Fantasy.csv", "0.0006", villesElements, 0, 0); // xOffset = 0, yOffset = 0
+
+
+    // Fonction pour afficher/masquer les éléments en fonction du zoom
+    function updateTextVisibility() {
+        var zoomLevel = viewer.viewport.getZoom();
+
+        // Gestion de la visibilité pour les continents
+        continentsElements.forEach(function(element) {
+            var display = (zoomLevel >= 1 && zoomLevel < 2) ? 'block' : 'none';
+            element.text.style.display = display;
+            element.rect.style.display = display;
+        });
+
+        // Gestion de la visibilité pour les pays
+        paysElements.forEach(function(element) {
+            var display = (zoomLevel >= 2 && zoomLevel < 4) ? 'block' : 'none';
+            element.text.style.display = display;
+            element.rect.style.display = display;
+        });
+
+        // Gestion de la visibilité pour les régions
+        regionElements.forEach(function(element) {
+            var display = (zoomLevel >= 4 && zoomLevel < 8) ? 'block' : 'none';
+            element.text.style.display = display;
+            element.rect.style.display = display;
+        });
+
+        // Gestion de la visibilité pour les villes, cités et villages
+        villesElements.forEach(function(element) {
+            var display = (zoomLevel >= 8) ? 'block' : 'none';
+            element.text.style.display = display;
+            element.rect.style.display = display;
+        });
+    }
+
+    // Écouter les événements de zoom et mettre à jour la visibilité
+    viewer.addHandler('zoom', function() {
+        updateTextVisibility();
     });
-}
 
-
-
-
-    // Ajouter les villes, cités et villages avec des tailles de texte différentes
-    addTextFromCSV("./Data/DT_Villes.csv", "0.0011");   // Texte pour les villes
-    addTextFromCSV("./Data/DT_Cites.csv", "0.0015");    // Texte pour les cités
-    addTextFromCSV("./Data/DT_Villages_Fantasy.csv", "0.0006"); // Texte pour les villages
+    // Initialement mettre à jour la visibilité (au cas où le zoom est déjà correct au démarrage)
+    updateTextVisibility();
 
     // Gestion des boutons pour activer/désactiver l'image et le texte
     document.getElementById('toggleText').addEventListener('click', function() {
-        textElements.forEach(function(textElement) {
+        allTextElements.forEach(function(textElement) {
             if (textElement.style.display === 'none') {
                 textElement.style.display = 'block';
             } else {
@@ -192,7 +245,7 @@ function addTextFromCSV(filePath, fontSize) {
             }
         });
 
-        rectElements.forEach(function(rectElement) {
+        allRectElements.forEach(function(rectElement) {
             if (rectElement.style.display === 'none') {
                 rectElement.style.display = 'block';
             } else {
