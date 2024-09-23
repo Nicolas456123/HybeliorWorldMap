@@ -1,14 +1,14 @@
-,Coord_X,Coord_Y
-Azoria,191.597290817057,359.440126585782
-Cestra,-468.200957416527,-461.471577823434
-Nysaria,192.670149807713,-406.557357566929
-Baelor,39.3983744172753,219.409665572729
-Ulinor,-24.3847398731563,104.181223356705
-Evertia,-457.905449892024,146.31445181871
-Cendara,-379.625579265849,269.785079394242
-Iltahra,-253.338719846772,131.012269004479
-Galenor,-299.97624435421,-155.616118196543
-Celethor,-78.6960866309671,-357.750371930161
-Alkaran,140.929965113716,-208.534441576282
-Endora,171.57555915424,41.8018076581829
-Onara,363.782968351567,73.944232328577
+,Coord_X,Coord_Y,Description
+Alkaran,140.9299651,-208.5344416,"Alkaran, connu comme Le Royaume des Anciens Esprits, est un continent où les forces de la nature sont vénérées comme des divinités. Ici, la religion est un mélange de polythéisme, d'animisme et de culte des ancêtres, inspiré par les traditions des peuples"
+Azoria,191.5972908,359.4401266,"Azoria, le Continent des Glaces Éternelles, est une terre désolée et majestueuse où la neige et la glace dominent. Ce vaste désert de glace s’étend à perte de vue, interrompu seulement par d’imposantes chaînes de montagnes aux sommets recouverts de neiges"
+Baelor,39.39837442,219.4096656,"L'île de Baelor est l'un des plus grands mystères d'Hybelior. Connue sous le nom de L'Île Fantôme, elle est presque toujours dissimulée par un épais brouillard argenté. Les rares marins qui ont réussi à accoster sur ses rivages racontent des histoires d'u"
+Celethor,-78.69608663,-357.7503719,"Celethor, le Continent des Neiges Éternelles, est une terre gelée où l’hiver règne en maître. Le nord est dominé par un désert de glace, où le soleil ne se lève que rarement, laissant place à des nuits interminables illuminées par des aurores boréales aux"
+Cendara,-379.6255793,269.7850794,"Cendara, surnommée L'Île de Feu et de Cendres, est un archipel volcanique actif, constitué d'une grande île principale et d'une plus petite. Le cœur de Cendara est dominé par le Mont Cendra, un volcan massif qui entre fréquemment en éruption, projetant de"
+Cestra,-468.2009574,-461.4715778,"Cestra, surnommée Le Bastion du Nord, est un continent recouvert de vastes étendues de toundra et de glaciers massifs. C'est un territoire rude et inhospitalier où seuls les plus forts survivent. Les montagnes de glace, presque impénétrables, forment une "
+Endora,171.5755592,41.80180766,"Endora, surnommé Le Continent des Contrastes, est une terre où les extrêmes se côtoient, offrant une diversité à la fois fascinante et dangereuse. À l’ouest, les vastes déserts de sable et de roche forment une mer aride, où les tempêtes de sable sont si p"
+Evertia,-457.9054499,146.3144518,"Evertia, surnommée L'Île aux Merveilles, est un paradis terrestre aux yeux du monde. Ce continent insulaire est renommé pour sa qualité de vie exceptionnelle, où les arbres fruitiers abondent, les terres sont cultivées à perte de vue, et les animaux sont "
+Galenor,-299.9762444,-155.6161182,"Galenor est souvent surnommé Le Jardin des Titans. C’est un continent béni par une diversité naturelle sans pareille, chaque région semblant être façonnée par une divinité différente. Les terres du nord, où s'étendent les forêts épaisses de taïga, sont ha"
+Iltahra,-253.3387198,131.012269,"Ilthara, connu sous le nom de Le Berceau de la Magie, est un continent imprégné d’un pouvoir ancien qui suinte du sol et des arbres. Les forêts tropicales denses, où chaque plante semble avoir une conscience propre, abritent des créatures fantastiques et "
+Nysaria,192.6701498,-406.5573576,"Nysaria, surnommée La Forêt de l’Éternel Hiver, est une petite île entièrement recouverte par un épais manteau de taïga. Les arbres, hauts et robustes, semblent toucher les cieux, leurs branches recouvertes de neige en permanence. Cette île est un royaume"
+Onara,363.7829684,73.94423233,"Onara, connu sous le nom de Le Royaume des Vents et des Glaces, est un continent dominé par des plaines tempérées vastes et des étendues de taïga au nord. Ces plaines sont fertiles, parsemées de collines douces et de rivières serpentant à travers les prai"
+Ulinor,-24.38473987,104.1812234,"Ulinor, appelé L’Île des Échos, est un continent insulaire composé d’une grande île principale et de deux petites îles satellites, une au nord et une au sud. Le paysage d’Ulinor est diversifié, avec des forêts tropicales à l’ouest, des plaines arides au c"
