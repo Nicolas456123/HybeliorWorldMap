@@ -315,11 +315,6 @@
 							break;
 					}
 					viewer.viewport.zoomTo(zoomLevel); // Appliquer le niveau de zoom
-
-					// Mise à jour de l'info panel avec les informations de l'élément trouvé
-					document.getElementById('cityName').textContent = element.name;
-					document.getElementById('cityInfo').textContent = "Zoom sur : " + element.name;
-					document.getElementById('infoPanel').style.display = 'block';
 				}
 			});
 		});
