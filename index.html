@@ -15,7 +15,7 @@
         /* Style pour les boutons */
         .controls {
             position: absolute;
-            top: 100px;
+            top: 50px;
             left: 10px;
             z-index: 1000;
         }
@@ -56,25 +56,25 @@
             z-index: 1001; /* S'assurer que la fenêtre est au-dessus des autres éléments */
 	    overflow-y: auto; /* Barre de défilement verticale si nécessaire */
         }
-		.suggestions-list {
-			border: 1px solid #ccc;
-			background-color: white;
-			max-height: 150px;
-			overflow-y: auto;
-			display: none; /* Caché par défaut */
-			position: absolute;
-			width: 200px;
-			z-index: 1000;
-		}
+	.suggestions-list {
+		border: 1px solid #ccc;
+		background-color: white;
+		max-height: 150px;
+		overflow-y: auto;
+		display: none; /* Caché par défaut */
+		position: absolute;
+		width: 200px;
+		z-index: 1000;
+	}
 
-		.suggestions-list div {
-			padding: 8px;
-			cursor: pointer;
-		}
+	.suggestions-list div {
+		padding: 8px;
+		cursor: pointer;
+	}
 
-		.suggestions-list div:hover {
-			background-color: #f0f0f0;
-		}
+	.suggestions-list div:hover {
+		background-color: #f0f0f0;
+	}
 
 
         .info-panel h2 {
@@ -106,7 +106,6 @@
 		<input type="text" id="searchInput" placeholder="Rechercher un nom..." style="width: 200px; padding: 8px;">
 		<div id="suggestions" class="suggestions-list"></div> <!-- Conteneur pour les suggestions -->
 		<button id="searchButton">Rechercher</button>
-		<button id="toggleText">Toggle Text</button>
 	</div>
 
 
