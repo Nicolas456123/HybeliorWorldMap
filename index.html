@@ -39,7 +39,7 @@
             top: 10px;
             right: 10px;
             width: 300px;
-            height: auto;
+            height: 600px;
             padding: 15px;
             background-color: white;
             border: 1px solid #ccc;
@@ -47,6 +47,7 @@
             font-family: 'Copperplate Gothic Std', sans-serif;
             display: none; /* Caché par défaut */
             z-index: 1001; /* S'assurer que la fenêtre est au-dessus des autres éléments */
+	    overflow-y: auto; /* Barre de défilement verticale si nécessaire */
         }
 
         .info-panel h2 {
@@ -60,6 +61,8 @@
 		    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
             font-size: 14px;
             color: #666;
+	    text-align: justify; /* Justifier le texte */
+
         }
 		
 		#bordersElement {
