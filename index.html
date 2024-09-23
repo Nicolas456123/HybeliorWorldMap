@@ -1,5 +1,6 @@
-<html>
+<html lang="fr">
 <head>
+	<meta charset="UTF-8">
     <title>Hybelior World Map</title>
     <script src="./openseadragon-bin-5.0.0/openseadragon.min.js"></script>
     <script src="./openseadragon-bin-5.0.0/openseadragon-svg-overlay.js"></script>
@@ -49,12 +50,14 @@
         }
 
         .info-panel h2 {
+		    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
             margin-top: 0;
             font-size: 20px;
             color: #333;
         }
 
         .info-panel p {
+		    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
             font-size: 14px;
             color: #666;
         }
@@ -91,7 +94,7 @@
     document.getElementById('closeInfoPanel').addEventListener('click', function() {
         document.getElementById('infoPanel').style.display = 'none';
     });
-
+	
     // Ajouter l'overlay SVG
     var svgOverlay = viewer.svgOverlay();
 
@@ -164,14 +167,22 @@
                     // Ajouter les éléments à l'overlay
                     svgOverlay.node().appendChild(rectElement);
                     svgOverlay.node().appendChild(textElement);
-					
+										
 					// Ajouter un gestionnaire de clic uniquement au rectangle
 					var tracker = new OpenSeadragon.MouseTracker({
 						element: rectElement,  // Événements de clic seulement sur le rectangle
 						clickHandler: function(event) {
 							event.preventDefaultAction = true; // Empêche le zoom
-							document.getElementById('cityName').textContent = item['']; // Nom de la ville
-							document.getElementById('cityInfo').textContent = "Texte placeholder pour " + item[''] + "."; // Texte placeholder
+							document.getElementById('cityName').textContent = item['']; // Nom du pays
+							
+							// Construire le contenu de l'info-bulle avec les informations supplémentaires
+							var infoContent = `
+								<strong>Description:</strong><br> ${item['Description']}<br><br>
+								<strong>Gouvernement:</strong><br> ${item['Gouvernement']}<br><br>
+								<strong>Culture:</strong><br> ${item['Culture']}<br><br>
+								<strong>Histoire Marquante:</strong><br> ${item['HistoireMarquante']}
+							`;
+							document.getElementById('cityInfo').innerHTML = infoContent; // Remplir l'info-bulle avec les détails du pays
 							document.getElementById('infoPanel').style.display = 'block'; // Afficher la fenêtre d'information
 						}
 					});
@@ -181,7 +192,8 @@
                     allTextElements.push(textElement);
                     allRectElements.push(rectElement);
                 });
-            }
+            },
+			encoding: "UTF-8" // Force l'encodage en UTF-8
         });
     }
 
