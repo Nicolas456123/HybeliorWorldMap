@@ -305,7 +305,7 @@
 							zoomLevel = 3.9;
 							break;
 						case 2: // Régions
-							zoomLevel = 7.9;
+							zoomLevel = 9.9;
 							break;
 						case 3: // Villes
 							zoomLevel = 17;
@@ -345,14 +345,14 @@
 
         // Gestion de la visibilité pour les régions
         regionElements.forEach(function(element) {
-            var display = (zoomLevel >= 4 && zoomLevel < 8) ? 'block' : 'none';
+            var display = (zoomLevel >= 4 && zoomLevel < 10) ? 'block' : 'none';
             element.text.style.display = display;
             element.rect.style.display = display;
         });
 
         // Gestion de la visibilité pour les villes, cités et villages
         villesElements.forEach(function(element) {
-            var display = (zoomLevel >= 8) ? 'block' : 'none';
+            var display = (zoomLevel >= 10) ? 'block' : 'none';
             element.text.style.display = display;
             element.rect.style.display = display;
         });
