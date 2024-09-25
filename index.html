@@ -112,26 +112,18 @@
 
 <body>
 <div id="openseadragon1" style="width: calc(100% - 20px); height: calc(100% - 20px); position: relative;">
-    	<!-- Boutons de contrôle -->
-   	<div class="controls">
-		<input type="text" id="searchInput" placeholder="Rechercher un nom..." style="width: 200px; padding: 8px;">
-		<div id="suggestions" class="suggestions-list"></div> <!-- Conteneur pour les suggestions -->
-		<button id="searchButton">Rechercher</button>
-	</div>
+    <!-- Barre de recherche et boutons de contrôle -->
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Rechercher un nom...">
+        <button id="searchButton">Rechercher</button>
+    </div>
 
-
-	<!-- Structure du panneau d'information -->
-	<div id="infoPanel" class="info-panel">
-	    <!-- Section fixe avec le titre et le bouton de fermeture -->
-	    <div class="info-panel-header">
-		<h2 id="cityName">Nom de la ville</h2>
-		<span id="closeInfoPanel" style="position:absolute; top:10px; right:10px; cursor:pointer; font-weight:bold;">&times;</span>
-	    </div>
-	    <!-- Section déroulante avec le contenu -->
-	    <div class="info-panel-content">
-		<p id="cityInfo">Texte placeholder pour l'information sur la ville...</p>
-	    </div>
-	</div>
+    <!-- Fenêtre d'information pour afficher les détails de la ville -->
+    <div id="infoPanel" class="info-panel">
+        <span id="closeInfoPanel" style="position:absolute; top:10px; right:10px; cursor:pointer; font-weight:bold;">&times;</span>
+        <h2 id="cityName">Nom de la ville</h2>
+        <p id="cityInfo">Texte placeholder pour l'information sur la ville...</p>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -237,12 +229,12 @@
 							document.getElementById('cityName').textContent = name; // Nom du pays
 							
 							// Construire le contenu de l'info-bulle avec les informations supplémentaires
-							var infoContent = 
-								<strong>Description:</strong><br> ${item['Description']}<br><br>
-								<strong>Gouvernement:</strong><br> ${item['Gouvernement']}<br><br>
-								<strong>Culture:</strong><br> ${item['Culture']}<br><br>
-								<strong>Histoire Marquante:</strong><br> ${item['HistoireMarquante']}
-							;
+				                            var infoContent = `
+				                                <strong>Description:</strong><br> ${item['Description'] || 'Non disponible'}<br>
+				                                <strong>Gouvernement:</strong><br> ${item['Gouvernement'] || 'Non disponible'}<br>
+				                                <strong>Culture:</strong><br> ${item['Culture'] || 'Non disponible'}<br>
+				                                <strong>Histoire Marquante:</strong><br> ${item['HistoireMarquante'] || 'Non disponible'}
+				                            `;
 							document.getElementById('cityInfo').innerHTML = infoContent; // Remplir l'info-bulle avec les détails du pays
 							document.getElementById('infoPanel').style.display = 'block'; // Afficher la fenêtre d'information
 						}
