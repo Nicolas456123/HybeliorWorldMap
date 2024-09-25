@@ -86,6 +86,7 @@
 	    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
 	    font-size: 14px;
 	    color: #666;
+     white-space: pre-line; /* Conserve les sauts de ligne dans le texte */
 	}
 	    
 	.suggestions-list {
@@ -241,8 +242,7 @@
 							document.getElementById('cityName').textContent = name; // Nom du pays
 							
 							// Construire le contenu de l'info-bulle avec les informations supplémentaires
-				                            var infoContent = `
-				                                <strong>Description:</strong><br> ${item['Description'] || 'Non disponible'}<br>
+				                            var infoContent = `${item['Description'] || 'Non disponible'}<br>
 				                                <strong>Gouvernement:</strong><br> ${item['Gouvernement'] || 'Non disponible'}<br>
 				                                <strong>Culture:</strong><br> ${item['Culture'] || 'Non disponible'}<br>
 				                                <strong>Histoire Marquante:</strong><br> ${item['HistoireMarquante'] || 'Non disponible'}
