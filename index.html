@@ -38,7 +38,6 @@
             background-color: white;
             padding: 8px;
         }
-
         /* Style pour la fenêtre d'information */
         .info-panel {
             position: absolute;
@@ -65,23 +64,27 @@
 	    border-bottom: 1px solid #ccc;
 	    z-index: 10; /* Assurez-vous qu'il est au-dessus du contenu défilant */
 	}
+	
 	/* Contenu déroulant */
 	.info-panel-content {
 	    padding: 15px;
-	}
-	.info-panel h2 {
-	    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
-            margin-top: 0;
-            font-size: 20px;
-            color: #333;
-        }
-        .info-panel p {
-		    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
-            font-size: 14px;
-            color: #666;
 	    text-align: justify; /* Justifier le texte */
-
-        }
+	}
+	
+	/* Titre (restant fixé en haut) */
+	.info-panel-header h2 {
+	    font-family: 'Verdana', sans-serif; /* Police pour le titre */
+	    margin-top: 0;
+	    font-size: 20px;
+	    color: #333;
+	}
+	
+	/* Texte du contenu */
+	.info-panel-content p {
+	    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
+	    font-size: 14px;
+	    color: #666;
+	}
 	    
 	.suggestions-list {
 		border: 1px solid #ccc;
@@ -120,11 +123,18 @@
 
     <!-- Fenêtre d'information pour afficher les détails de la ville -->
     <div id="infoPanel" class="info-panel">
-        <span id="closeInfoPanel" style="position:absolute; top:10px; right:10px; cursor:pointer; font-weight:bold;">&times;</span>
-        <h2 id="cityName">Nom de la ville</h2>
-        <p id="cityInfo">Texte placeholder pour l'information sur la ville...</p>
+        <!-- Section fixe avec le titre et le bouton de fermeture -->
+        <div class="info-panel-header">
+            <h2 id="cityName">Nom de la ville</h2>
+            <span id="closeInfoPanel" style="position:absolute; top:10px; right:10px; cursor:pointer; font-weight:bold;">&times;</span>
+        </div>
+        <!-- Section déroulante avec le contenu -->
+        <div class="info-panel-content">
+            <p id="cityInfo">Texte placeholder pour l'information sur la ville...</p>
+        </div>
     </div>
 </div>
+
 
 <script type="text/javascript">
     var viewer = OpenSeadragon({
