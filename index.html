@@ -221,10 +221,10 @@
 							
 							// Construire le contenu de l'info-bulle avec les informations supplémentaires
 							var infoContent = `
-								<strong>Description:</strong><br> ${item['Description']}<br><br>
-								<strong>Gouvernement:</strong><br> ${item['Gouvernement']}<br><br>
-								<strong>Culture:</strong><br> ${item['Culture']}<br><br>
-								<strong>Histoire Marquante:</strong><br> ${item['HistoireMarquante']}
+							    <strong>Description:</strong><br> ${item['Description'].replace(/\n/g, '<br>')}<br><br>
+							    <strong>Gouvernement:</strong><br> ${item['Gouvernement'].replace(/\n/g, '<br>')}<br><br>
+							    <strong>Culture:</strong><br> ${item['Culture'].replace(/\n/g, '<br>')}<br><br>
+							    <strong>Histoire Marquante:</strong><br> ${item['HistoireMarquante'].replace(/\n/g, '<br>')}
 							`;
 							document.getElementById('cityInfo').innerHTML = infoContent; // Remplir l'info-bulle avec les détails du pays
 							document.getElementById('infoPanel').style.display = 'block'; // Afficher la fenêtre d'information
