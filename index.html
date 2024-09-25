@@ -47,7 +47,7 @@
             width: 300px;
 	    /*height: auto; /* Hauteur automatique en fonction du contenu */
             max-height: calc(100vh - 20px); /* Hauteur maximale de 600px */
-            padding: 15px;
+            padding: 0px; /* On retire le padding ici pour mieux gérer dans les sous-div */
             background-color: white;
             border: 1px solid #ccc;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -55,7 +55,34 @@
             display: none; /* Caché par défaut */
             z-index: 1001; /* S'assurer que la fenêtre est au-dessus des autres éléments */
 	    overflow-y: auto; /* Barre de défilement verticale si nécessaire */
+        }  
+	/* Section fixe (entête) */
+	.info-panel-header {
+	    position: sticky;
+	    top: 0;
+	    background-color: white;
+	    padding: 15px;
+	    border-bottom: 1px solid #ccc;
+	    z-index: 10; /* Assurez-vous qu'il est au-dessus du contenu défilant */
+	}
+	/* Contenu déroulant */
+	.info-panel-content {
+	    padding: 15px;
+	}
+	.info-panel h2 {
+	    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
         }
+        .info-panel p {
+		    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
+            font-size: 14px;
+            color: #666;
+	    text-align: justify; /* Justifier le texte */
+
+        }
+	    
 	.suggestions-list {
 		border: 1px solid #ccc;
 		background-color: white;
@@ -75,22 +102,6 @@
 	.suggestions-list div:hover {
 		background-color: #f0f0f0;
 	}
-
-
-        .info-panel h2 {
-		    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
-            margin-top: 0;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .info-panel p {
-		    font-family: 'Verdana', sans-serif; /* Police pour les paragraphes */
-            font-size: 14px;
-            color: #666;
-	    text-align: justify; /* Justifier le texte */
-
-        }
 		
 		#bordersElement {
 		position: absolute;
@@ -101,20 +112,26 @@
 
 <body>
 <div id="openseadragon1" style="width: calc(100% - 20px); height: calc(100% - 20px); position: relative;">
-    <!-- Boutons de contrôle -->
-    <div class="controls">
+    	<!-- Boutons de contrôle -->
+   	<div class="controls">
 		<input type="text" id="searchInput" placeholder="Rechercher un nom..." style="width: 200px; padding: 8px;">
 		<div id="suggestions" class="suggestions-list"></div> <!-- Conteneur pour les suggestions -->
 		<button id="searchButton">Rechercher</button>
 	</div>
 
 
-    <!-- Fenêtre d'information pour afficher les détails de la ville -->
-    <div id="infoPanel" class="info-panel">
-        <span id="closeInfoPanel" style="position:absolute; top:10px; right:10px; cursor:pointer; font-weight:bold;">&times;</span>
-        <h2 id="cityName">Nom de la ville</h2>
-        <p id="cityInfo">Texte placeholder pour l'information sur la ville...</p>
-    </div>
+	<!-- Structure du panneau d'information -->
+	<div id="infoPanel" class="info-panel">
+	    <!-- Section fixe avec le titre et le bouton de fermeture -->
+	    <div class="info-panel-header">
+		<h2 id="cityName">Nom de la ville</h2>
+		<span id="closeInfoPanel" style="position:absolute; top:10px; right:10px; cursor:pointer; font-weight:bold;">&times;</span>
+	    </div>
+	    <!-- Section déroulante avec le contenu -->
+	    <div class="info-panel-content">
+		<p id="cityInfo">Texte placeholder pour l'information sur la ville...</p>
+	    </div>
+	</div>
 </div>
 
 <script type="text/javascript">
