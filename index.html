@@ -163,7 +163,8 @@
     var villagesElements = [];
     var allTextElements = [];  // Pour toggle global
     var allRectElements = [];  // Pour toggle des rectangles
-    var allNames = [];  // Pour la recherche
+    // Variable pour stocker tous les noms (pays, continents, etc.)
+    var allNames = [];
 
     // Fonction de conversion des coordonnées pour les adapter à OpenSeadragon
     function convertCoordinates(x, y) {
@@ -266,13 +267,13 @@
     }
 
 	// Ajouter les textes et rectangles pour les continents, pays, régions et autres en fonction de leur niveau de zoom
-	addTextAndRectFromCSV("./Data/DT_Continents.csv", "0.03", continentsElements, 0.03, 0.02);   // xOffset = -10, yOffset = 5
-	addTextAndRectFromCSV("./Data/DT_Pays.csv", "0.01", paysElements, 0.015, 0.01);   // xOffset = -5, yOffset = 0
-	addTextAndRectFromCSV("./Data/DT_Region.csv", "0.004", regionElements, 0.005, 0.002); // xOffset = 0, yOffset = 0	
-	addTextAndRectFromCSV("./Data/DT_Capitales.csv", "0.0015", capitalesElements, 0, 0);   // Capitales (anciennement cités)
-	addTextAndRectFromCSV("./Data/DT_Cites.csv", "0.0011", citesElements, 0, 0);          // Cités (anciennement villes)
-	addTextAndRectFromCSV("./Data/DT_Villes_Fantasy.csv", "0.0006", villesElements, 0, 0);        // Villes (anciennement villages)
-	addTextAndRectFromCSV("./Data/DT_Villages.csv", "0.0004", villagesElements, 0, 0); // Villages (nouvelle catégorie)
+	addTextAndRectFromCSV("./Data/DT_Continents.csv", "0.03", continentsElements, 0.03, 0.02);
+	addTextAndRectFromCSV("./Data/DT_Pays.csv", "0.01", paysElements, 0.015, 0.01);
+	addTextAndRectFromCSV("./Data/DT_Region.csv", "0.004", regionElements, 0.005, 0.002);	
+	addTextAndRectFromCSV("./Data/DT_Villes_Fantasy.csv", "0.0006", villesElements, 0, 0);
+	addTextAndRectFromCSV("./Data/DT_Cites.csv", "0.0011", citesElements, 0, 0); 
+	addTextAndRectFromCSV("./Data/DT_Villages.csv", "0.0004", villagesElements, 0, 0);
+	addTextAndRectFromCSV("./Data/DT_Capitales.csv", "0.0015", capitalesElements, 0, 0);
 
 	// Gestion de la saisie dans la barre de recherche
 	document.getElementById('searchInput').addEventListener('input', function() {
@@ -383,28 +384,28 @@
         });
 	    // Affichage des capitales (anciennement cités)
 	    capitalesElements.forEach(function(element) {
-	        var display = (zoomLevel >= 14) ? 'block' : 'none';
+	        var display = (zoomLevel >= 10) ? 'block' : 'none';
 	        element.text.style.display = display;
 	        element.rect.style.display = display;
 	    });
 	
 	    // Affichage des cités (anciennement villes)
 	    citesElements.forEach(function(element) {
-	        var display = (zoomLevel >= 16) ? 'block' : 'none';
+	        var display = (zoomLevel >= 14) ? 'block' : 'none';
 	        element.text.style.display = display;
 	        element.rect.style.display = display;
 	    });
 	
 	    // Affichage des villes (anciennement villages)
 	    villesElements.forEach(function(element) {
-	        var display = (zoomLevel >= 18) ? 'block' : 'none';
+	        var display = (zoomLevel >= 16) ? 'block' : 'none';
 	        element.text.style.display = display;
 	        element.rect.style.display = display;
 	    });
 	
 	    // Affichage des villages (nouvelle catégorie)
 	    villagesElements.forEach(function(element) {
-	        var display = (zoomLevel >= 20) ? 'block' : 'none';
+	        var display = (zoomLevel >= 18) ? 'block' : 'none';
 	        element.text.style.display = display;
 	        element.rect.style.display = display;
 	    });
