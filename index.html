@@ -196,7 +196,7 @@
                     }
 					
 					// Assurez-vous que 'nom' est bien récupéré
-					var name = item[''];
+					var name = item['nom'];
 					console.log("Processing: " + name);  // Log pour vérifier le nom
 
 					if (!name) {
@@ -221,7 +221,7 @@
                     textElement.textContent = name;  // Texte provenant du CSV
 
                     // Calcul de la largeur et de la hauteur du rectangle basé sur le texte
-                    var textWidth = item[''].length * fontSize * 0.6; // Ajustez selon votre police
+                    var textWidth = item['nom'].length * fontSize * 0.6; // Ajustez selon votre police
                     var textHeight = fontSize * 1.1; // Ajouter un peu de marge pour le texte
 
                     // Création et configuration de l'élément rectangle SVG
