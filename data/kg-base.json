@@ -6628,7 +6628,7 @@
    "body": null,
    "data": {
     "periode": {
-     "debut": 9963,
+     "debut": 10137,
      "fin": 10137,
      "confiance": "haute",
      "methode": "fait-date"
@@ -6637,7 +6637,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "evt-0082",
@@ -7484,7 +7484,7 @@
    "body": null,
    "data": {
     "periode": {
-     "debut": -700,
+     "debut": 9250,
      "fin": 9500,
      "confiance": "haute",
      "methode": "fait-date"
@@ -7493,7 +7493,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "evt-0099",
@@ -7649,7 +7649,7 @@
    "data": {
     "periode": {
      "debut": 9900,
-     "fin": 10201,
+     "fin": 9900,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -7657,7 +7657,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "evt-0107",
@@ -10234,7 +10234,7 @@
    "data": {
     "periode": {
      "debut": 9990,
-     "fin": 10083,
+     "fin": 10058,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -10242,7 +10242,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "per-0143",
@@ -13178,7 +13178,7 @@
    "body": null,
    "data": {
     "periode": {
-     "debut": 9952,
+     "debut": 10170,
      "fin": 10201,
      "confiance": "haute",
      "methode": "fait-date"
@@ -13187,7 +13187,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "esp-0010",
@@ -19032,7 +19032,7 @@
     "source": "Elarian.md",
     "periode": {
      "debut": 10146,
-     "fin": 10146,
+     "fin": 10212,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -19040,7 +19040,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "per-0387",
@@ -36561,7 +36561,7 @@
    "data": {
     "periode": {
      "debut": 10070,
-     "fin": 10179,
+     "fin": 10086,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -36569,7 +36569,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "oeu-0016",
@@ -58247,7 +58247,7 @@
    "fact_type": "evenement",
    "subject_id": "evt-0098",
    "object_id": null,
-   "start_year": -700,
+   "start_year": 9250,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -58257,12 +58257,21 @@
    "seq": 0,
    "label": "Charges publiques de Caeloria réservées aux Liés, ~7 siècles avant le Sillage",
    "detail": null,
-   "data": null,
+   "data": {
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": -700,
+      "end_year": null
+     }
+    }
+   },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0206",
@@ -60130,11 +60139,11 @@
    "fact_type": "mort",
    "subject_id": "per-0080",
    "object_id": null,
-   "start_year": 10121,
+   "start_year": 10142,
    "start_precision": "annee",
    "start_circa": 0,
-   "end_year": 10138,
-   "end_precision": "annee",
+   "end_year": null,
+   "end_precision": null,
    "end_circa": 0,
    "era_id": "era7_actuelle",
    "seq": 0,
@@ -60142,13 +60151,21 @@
    "detail": null,
    "data": {
     "calendrier": "sillage",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 10121,
+      "end_year": 10138
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0277",
@@ -60238,11 +60255,11 @@
    "fact_type": "mort",
    "subject_id": "per-0134",
    "object_id": null,
-   "start_year": 10101,
+   "start_year": 10127,
    "start_precision": "annee",
    "start_circa": 0,
-   "end_year": 10127,
-   "end_precision": "annee",
+   "end_year": null,
+   "end_precision": null,
    "end_circa": 0,
    "era_id": "era7_actuelle",
    "seq": 0,
@@ -60250,13 +60267,21 @@
    "detail": null,
    "data": {
     "calendrier": "sillage",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 10101,
+      "end_year": 10127
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0281",
@@ -60454,7 +60479,7 @@
    "fact_type": "mort",
    "subject_id": "per-0142",
    "object_id": null,
-   "start_year": 10083,
+   "start_year": 10058,
    "start_precision": "annee",
    "start_circa": 0,
    "end_year": null,
@@ -60466,13 +60491,21 @@
    "detail": null,
    "data": {
     "calendrier": "regional",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 10083,
+      "end_year": null
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0289",
@@ -67213,9 +67246,9 @@
    "fact_type": "mort",
    "subject_id": "per-0386",
    "object_id": null,
-   "start_year": 10146,
-   "start_precision": "estimation",
-   "start_circa": 1,
+   "start_year": 10212,
+   "start_precision": "annee",
+   "start_circa": 0,
    "end_year": null,
    "end_precision": null,
    "end_circa": 0,
@@ -67225,13 +67258,21 @@
    "detail": null,
    "data": {
     "calendrier": "regional",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 10146,
+      "end_year": null
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0566",
@@ -68087,11 +68128,11 @@
    "fact_type": "evenement",
    "subject_id": "evt-0157",
    "object_id": null,
-   "start_year": 10179,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
+   "start_year": 10070,
+   "start_precision": "annee",
+   "start_circa": 0,
+   "end_year": 10086,
+   "end_precision": "annee",
    "end_circa": 0,
    "era_id": "era7_actuelle",
    "seq": 0,
@@ -68099,13 +68140,21 @@
    "detail": null,
    "data": {
     "calendrier": "regional",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 10179,
+      "end_year": null
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0599",
@@ -69349,7 +69398,7 @@
    "fact_type": "evenement",
    "subject_id": "evt-0081",
    "object_id": null,
-   "start_year": 9963,
+   "start_year": 10137,
    "start_precision": "annee",
    "start_circa": 0,
    "end_year": null,
@@ -69361,13 +69410,21 @@
    "detail": null,
    "data": {
     "calendrier": "sillage",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 9963,
+      "end_year": null
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0647",
@@ -70633,11 +70690,11 @@
    "fact_type": "regne",
    "subject_id": "per-0121",
    "object_id": "pol-0031",
-   "start_year": 10199,
+   "start_year": 10169,
    "start_precision": "estimation",
    "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
+   "end_year": 10199,
+   "end_precision": "annee",
    "end_circa": 0,
    "era_id": "era7_actuelle",
    "seq": 0,
@@ -70645,13 +70702,21 @@
    "detail": null,
    "data": {
     "calendrier": "regional",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 10199,
+      "end_year": null
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0694",
@@ -77159,7 +77224,7 @@
    "fact_type": "bataille",
    "subject_id": "evt-0106",
    "object_id": "lie-0011",
-   "start_year": 10201,
+   "start_year": 9900,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -77171,13 +77236,21 @@
    "detail": null,
    "data": {
     "calendrier": "regional",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 10201,
+      "end_year": null
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0932",
@@ -77722,9 +77795,9 @@
    "fact_type": "evenement",
    "subject_id": "esp-0009",
    "object_id": null,
-   "start_year": 9952,
-   "start_precision": "annee",
-   "start_circa": 0,
+   "start_year": 10170,
+   "start_precision": "estimation",
+   "start_circa": 1,
    "end_year": null,
    "end_precision": null,
    "end_circa": 0,
@@ -77734,13 +77807,21 @@
    "detail": null,
    "data": {
     "calendrier": "regional",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.a",
+     "avant": {
+      "start_year": 9952,
+      "end_year": null
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0954",

@@ -308,7 +308,10 @@ relation ne pointe vers une entité fantôme, aucun cycle `situe-dans`, aucune
 mort avant naissance sur dates fermes, aucune paire alliés-et-en-guerre).
 Tout ce qui suit est daté, sourcé par identifiant de fait, et corrigeable.
 
-### 11.a Erreurs mécaniques de datation — à corriger dans le graphe (pas d'arbitrage requis)
+### 11.a Erreurs mécaniques de datation — corrigées (2026-09-09)
+
+**Statut : résolu.** Voir la *Résolution appliquée* en fin de section ; le
+tableau ci-dessous est conservé comme trace de ce qui était faux.
 
 Le libellé de chaque fait dit une chose, l'année absolue inscrite en dit une
 autre. Neuf cas sûrs, décelés en recomparant l'année du graphe à l'année
@@ -330,9 +333,21 @@ S'y ajoute `fac-0953` (déclin des Phénix de Feu) daté 9 952 (≈ Sillage 3)
 alors que tout le libellé vit vers l'an 220–251 du Sillage (registre depuis
 Sillage 70, dernier passage an 240) — origine de la valeur inexpliquée.
 
-**Résolution suggérée.** Correction ponctuelle des dix faits (dans l'Atelier
-ou par un petit script au cas par cas) ; puis re-passer l'audit
-libellé-vs-année pour vérifier qu'il retombe à zéro.
+**Résolution appliquée (2026-09-09) — `scripts/corriger-faits-11a.js`.**
+Les dix faits portent désormais l'année que leur propre libellé énonce ;
+chaque ancienne valeur est conservée dans `data.correction` (auditable,
+réversible), et le script est idempotent (valeurs attendues vérifiées avant
+écriture). Les périodes dérivées de sept entités ont été recalées avec la
+règle exacte du pipeline (min/max des faits datés) : l'Invasion Avortée
+(9 900), la Schismature (10 070–10 086), l'Expédition Valkren (10 137),
+l'Édit de Celestia (9 250–9 500 — la fourchette du §11.b-2 reste à
+arbitrer), Veska Drennar (fin 10 058), Ingrid Frelvar (10 146–10 212 ; sa
+naissance ne vit que dans le libellé de `fac-0565`, conservée en début de
+période), les Phénix de Feu (déclin dès ~10 170). L'audit libellé-vs-année
+re-passé ne laisse que des faux positifs de lecture (années « 9 605 ap.A »
+attrapées comme « Sillage 9 », années de contexte) et les contradictions
+attestées du §11.b (Tessar, Kyra), qui relèvent de l'arbitrage, pas de la
+correction.
 
 ### 11.b Contradictions du lore — arbitrage d'auteur requis
 
