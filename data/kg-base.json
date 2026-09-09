@@ -1815,7 +1815,7 @@
     "type": "empire",
     "periode": {
      "debut": -16000,
-     "fin": -2000,
+     "fin": -11500,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -1823,7 +1823,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "pol-0046",
@@ -1837,8 +1837,8 @@
     "disparue": true,
     "type": "empire",
     "periode": {
-     "debut": -12000,
-     "fin": -4000,
+     "debut": -11000,
+     "fin": -7500,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -1846,7 +1846,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "pol-0047",
@@ -1860,8 +1860,8 @@
     "disparue": true,
     "type": "empire theocratique",
     "periode": {
-     "debut": -10000,
-     "fin": 0,
+     "debut": -9000,
+     "fin": -5000,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -1869,7 +1869,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "pol-0048",
@@ -1883,8 +1883,8 @@
     "disparue": true,
     "type": "empire spirituel",
     "periode": {
-     "debut": -10000,
-     "fin": -2000,
+     "debut": -7000,
+     "fin": -3500,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -1892,7 +1892,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "pol-0049",
@@ -1907,7 +1907,7 @@
     "type": "empire commercial",
     "periode": {
      "debut": -5000,
-     "fin": 0,
+     "fin": -1500,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -1915,7 +1915,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "pol-0050",
@@ -2067,7 +2067,7 @@
     "disparue": true,
     "type": "royaume intermediaire",
     "periode": {
-     "debut": 100,
+     "debut": 600,
      "fin": 3200,
      "confiance": "haute",
      "methode": "fait-date"
@@ -2076,7 +2076,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "pol-0057",
@@ -2090,7 +2090,7 @@
     "disparue": true,
     "type": "royaume intermediaire",
     "periode": {
-     "debut": 150,
+     "debut": 400,
      "fin": 4000,
      "confiance": "haute",
      "methode": "fait-date"
@@ -2099,7 +2099,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "pol-0058",
@@ -2113,7 +2113,7 @@
     "disparue": true,
     "type": "royaume intermediaire",
     "periode": {
-     "debut": 200,
+     "debut": 800,
      "fin": 4800,
      "confiance": "haute",
      "methode": "fait-date"
@@ -2122,7 +2122,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "pol-0059",
@@ -7222,8 +7222,8 @@
    "body": null,
    "data": {
     "periode": {
-     "debut": 10024,
-     "fin": 10087,
+     "debut": 10037,
+     "fin": 10086,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -7231,7 +7231,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "per-0095",
@@ -7484,7 +7484,7 @@
    "body": null,
    "data": {
     "periode": {
-     "debut": 9250,
+     "debut": 9499,
      "fin": 9500,
      "confiance": "haute",
      "methode": "fait-date"
@@ -13400,14 +13400,14 @@
   {
    "id": "per-0200",
    "type": "personne",
-   "name": "Kyra",
+   "name": "Kyra (de Glintaris)",
    "slug": null,
    "summary": "Fille d’Aldren Voss ; ranima la Flamme mourante d’un contact, confiée au temple d’Ignis Aeternum, morte à 11 ans d’une fièvre inexpliquée.",
    "body": null,
    "data": {
     "periode": {
-     "debut": 10149,
-     "fin": 10200,
+     "debut": 10154,
+     "fin": 10165,
      "confiance": "haute",
      "methode": "fait-date"
     }
@@ -13415,7 +13415,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "per-0201",
@@ -53481,6 +53481,80 @@
    "disclosure": "interne",
    "created_at": "2026-08-26T00:00:00.000Z",
    "updated_at": "2026-08-26T00:00:00.000Z"
+  },
+  {
+   "id": "per-0913",
+   "type": "personne",
+   "name": "Kyra (d'Ardentris)",
+   "summary": "Forgeronne à Ardentris, fille de la prêtresse Velya du cratère de Falnorath (Myrtam) ; morte à dix-neuf ans de la Maladie des Poumons — sa mère refusa la crémation volcanique et l'enterra.",
+   "data": {
+    "periode": {
+     "debut": 10149,
+     "fin": 10200,
+     "confiance": "haute",
+     "methode": "fait-date"
+    },
+    "arbitrage": "§11.b-3 : scindée de per-0200 (délégation de l'auteur, 2026-09-09)"
+   },
+   "slug": null,
+   "body": null,
+   "status": "canon",
+   "disclosure": "interne",
+   "created_at": "2026-09-09T00:00:00.000Z",
+   "updated_at": "2026-09-09T00:00:00.000Z"
+  },
+  {
+   "id": "per-0914",
+   "type": "personne",
+   "name": "Kyra (de Thalor)",
+   "summary": "Épouse d'Aldren de Thalor et mère de leurs deux fils ; l'eau de vérité de la cascade révéla à son mari ce que ses proches taisaient, avant qu'il ne se réforme pour « mériter » la vérité.",
+   "data": {
+    "arbitrage": "§11.b-3 : scindée de per-0200 (délégation de l'auteur, 2026-09-09)"
+   },
+   "slug": null,
+   "body": null,
+   "status": "canon",
+   "disclosure": "interne",
+   "created_at": "2026-09-09T00:00:00.000Z",
+   "updated_at": "2026-09-09T00:00:00.000Z"
+  },
+  {
+   "id": "pol-0124",
+   "type": "entite-politique",
+   "name": "Ligue des Marchands",
+   "slug": null,
+   "summary": "Ligue marchande fondée par Selyra la Calculatrice, qui choisit Fablioris pour capitale (baie neutre contrôlée par l'eau) ; institution tyndarienne.",
+   "body": null,
+   "data": {
+    "genre": "ligue",
+    "periode": {
+     "debut": 9977,
+     "fin": null,
+     "confiance": "haute",
+     "methode": "fait-date"
+    },
+    "arbitrage": "§11.b-10 : détachée de Tyndara (délégation de l'auteur, 2026-09-09)"
+   },
+   "status": "canon",
+   "disclosure": "interne",
+   "created_at": "2026-09-09T00:00:00.000Z",
+   "updated_at": "2026-09-09T00:00:00.000Z"
+  },
+  {
+   "id": "lie-0969",
+   "type": "lieu",
+   "name": "Velmaris (Seraphia)",
+   "slug": null,
+   "summary": "Village de pêcheurs de perles du Lagosaim (Seraphia), plongeant pour des perles nacrées d'ornement religieux ; les tatouages fonctionnels des plongeurs codent zone, profondeur et qualité de chaque plongeon réussi.",
+   "body": null,
+   "data": {
+    "echelle": "bourg",
+    "arbitrage": "§11.b-11 : homonyme détaché de la Velmaris de Solmaris (délégation de l'auteur, 2026-09-09)"
+   },
+   "status": "canon",
+   "disclosure": "interne",
+   "created_at": "2026-09-09T00:00:00.000Z",
+   "updated_at": "2026-09-09T00:00:00.000Z"
   }
  ],
  "facts": [
@@ -54497,226 +54571,6 @@
    "updated_at": "2026-07-17T00:00:00.000Z"
   },
   {
-   "id": "fac-0047",
-   "fact_type": "fondation",
-   "subject_id": "pol-0045",
-   "object_id": null,
-   "start_year": -15000,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0048",
-   "fact_type": "chute",
-   "subject_id": "pol-0045",
-   "object_id": null,
-   "start_year": -2000,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0049",
-   "fact_type": "fondation",
-   "subject_id": "pol-0046",
-   "object_id": null,
-   "start_year": -12000,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0050",
-   "fact_type": "chute",
-   "subject_id": "pol-0046",
-   "object_id": null,
-   "start_year": -4000,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0051",
-   "fact_type": "fondation",
-   "subject_id": "pol-0047",
-   "object_id": null,
-   "start_year": -10000,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0052",
-   "fact_type": "chute",
-   "subject_id": "pol-0047",
-   "object_id": null,
-   "start_year": 0,
-   "start_precision": "annee",
-   "start_circa": 0,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0053",
-   "fact_type": "fondation",
-   "subject_id": "pol-0048",
-   "object_id": null,
-   "start_year": -10000,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0054",
-   "fact_type": "chute",
-   "subject_id": "pol-0048",
-   "object_id": null,
-   "start_year": -2000,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0055",
-   "fact_type": "fondation",
-   "subject_id": "pol-0049",
-   "object_id": null,
-   "start_year": -5000,
-   "start_precision": "estimation",
-   "start_circa": 1,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0056",
-   "fact_type": "chute",
-   "subject_id": "pol-0049",
-   "object_id": null,
-   "start_year": 0,
-   "start_precision": "annee",
-   "start_circa": 0,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
    "id": "fac-0057",
    "fact_type": "fondation",
    "subject_id": "pol-0050",
@@ -54964,138 +54818,6 @@
    "subject_id": "pol-0055",
    "object_id": null,
    "start_year": 0,
-   "start_precision": "annee",
-   "start_circa": 0,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0069",
-   "fact_type": "fondation",
-   "subject_id": "pol-0056",
-   "object_id": null,
-   "start_year": 100,
-   "start_precision": "annee",
-   "start_circa": 0,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0070",
-   "fact_type": "chute",
-   "subject_id": "pol-0056",
-   "object_id": null,
-   "start_year": 3000,
-   "start_precision": "annee",
-   "start_circa": 0,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0071",
-   "fact_type": "fondation",
-   "subject_id": "pol-0057",
-   "object_id": null,
-   "start_year": 150,
-   "start_precision": "annee",
-   "start_circa": 0,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0072",
-   "fact_type": "chute",
-   "subject_id": "pol-0057",
-   "object_id": null,
-   "start_year": 3500,
-   "start_precision": "annee",
-   "start_circa": 0,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0073",
-   "fact_type": "fondation",
-   "subject_id": "pol-0058",
-   "object_id": null,
-   "start_year": 200,
-   "start_precision": "annee",
-   "start_circa": 0,
-   "end_year": null,
-   "end_precision": null,
-   "end_circa": 0,
-   "era_id": null,
-   "seq": 0,
-   "label": null,
-   "detail": null,
-   "data": null,
-   "source_id": "src-0001",
-   "status": "canon",
-   "disclosure": "interne",
-   "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
-  },
-  {
-   "id": "fac-0074",
-   "fact_type": "chute",
-   "subject_id": "pol-0058",
-   "object_id": null,
-   "start_year": 4800,
    "start_precision": "annee",
    "start_circa": 0,
    "end_year": null,
@@ -57789,7 +57511,7 @@
    "fact_type": "naissance",
    "subject_id": "per-0094",
    "object_id": null,
-   "start_year": 10024,
+   "start_year": 10037,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -57801,13 +57523,20 @@
    "detail": null,
    "data": {
     "calendrier": "regional",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.b-1 : naissance arbitrée en Sillage 88",
+     "avant": {
+      "start_year": 10024
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0188",
@@ -58247,7 +57976,7 @@
    "fact_type": "evenement",
    "subject_id": "evt-0098",
    "object_id": null,
-   "start_year": 9250,
+   "start_year": 9499,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -58260,10 +57989,9 @@
    "data": {
     "correction": {
      "date": "2026-09-09",
-     "motif": "§11.a",
+     "motif": "§11.b-2 : Édit arbitré au Premier Conclave (~an −450 du Sillage)",
      "avant": {
-      "start_year": -700,
-      "end_year": null
+      "start_year": 9250
      }
     }
    },
@@ -58861,13 +58589,15 @@
     "methode": "contexte",
     "confiance": "basse",
     "indice_date": "Deux ancrages possibles : le Protectorat d'Haldros (~8 200 ap.A) porte déjà son nom ; Haldria comme nation date de ~9 300 ap.A. Fourchette entre les deux.",
-    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md"
+    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md",
+    "fourchette": true,
+    "arbitrage": "§11.b-12 : fenêtre d'incertitude, pas une durée de règne (délégation de l'auteur, 2026-09-09)"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0228",
@@ -60750,7 +60480,7 @@
    "fact_type": "autre",
    "subject_id": "evt-0098",
    "object_id": null,
-   "start_year": 9350,
+   "start_year": 9499,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -60760,12 +60490,20 @@
    "seq": 0,
    "label": "Édit de Celestia (~9 350 ap.A, Caeloria) : réserve les emplois publics aux Liés et institue une discrimination légale douce envers les non-Liés.",
    "detail": null,
-   "data": null,
+   "data": {
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.b-2 : Édit arbitré au Premier Conclave (~an −450 du Sillage)",
+     "avant": {
+      "start_year": 9350
+     }
+    }
+   },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0300",
@@ -62758,7 +62496,7 @@
    "fact_type": "fondation",
    "subject_id": "pol-0027",
    "object_id": "pol-0081",
-   "start_year": 9800,
+   "start_year": 9996,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -62768,19 +62506,27 @@
    "seq": 0,
    "label": "Fondation d'Elarath (~9 800 ap.A), successeur de la Fédération de Morveth",
    "detail": null,
-   "data": null,
+   "data": {
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.b-8 : « l'an 47 » de la fragmentation de Morveth fait foi",
+     "avant": {
+      "start_year": 9800
+     }
+    }
+   },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0391",
    "fact_type": "fondation",
    "subject_id": "pol-0030",
    "object_id": "pol-0081",
-   "start_year": 9800,
+   "start_year": 9961,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -62790,12 +62536,20 @@
    "seq": 0,
    "label": "Fondation de Solmaris (~9 800 ap.A), successeur de la Fédération de Morveth",
    "detail": null,
-   "data": null,
+   "data": {
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.b-8 : la Première Veillée fait foi",
+     "avant": {
+      "start_year": 9800
+     }
+    }
+   },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0392",
@@ -62821,7 +62575,7 @@
   },
   {
    "id": "fac-0393",
-   "fact_type": "fondation",
+   "fact_type": "evenement",
    "subject_id": "pol-0035",
    "object_id": "pol-0069",
    "start_year": 9800,
@@ -62834,12 +62588,15 @@
    "seq": 0,
    "label": "Fondation de Mirathi, province de Vytharia (~9 800 ap.A)",
    "detail": null,
-   "data": null,
+   "data": {
+    "arbitrage": "§11.b-7 : érection de Mirathi en province de Vytharia ; la fondation est le Sanctuaire (~9 400) (délégation de l'auteur, 2026-09-09)",
+    "avant_type": "fondation"
+   },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0394",
@@ -62956,7 +62713,7 @@
    "fact_type": "evenement",
    "subject_id": "evt-0098",
    "object_id": null,
-   "start_year": 9350,
+   "start_year": 9499,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -62966,12 +62723,20 @@
    "seq": 0,
    "label": "Édit de Celestia à Caeloria (~9 350 ap.A) — emplois publics réservés aux Liés",
    "detail": null,
-   "data": null,
+   "data": {
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.b-2 : Édit arbitré au Premier Conclave (~an −450 du Sillage)",
+     "avant": {
+      "start_year": 9350
+     }
+    }
+   },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0400",
@@ -65639,7 +65404,7 @@
   },
   {
    "id": "fac-0505",
-   "fact_type": "fondation",
+   "fact_type": "evenement",
    "subject_id": "pol-0029",
    "object_id": null,
    "start_year": -2000,
@@ -65658,13 +65423,15 @@
     "methode": "corpus-deduit",
     "confiance": "moyenne",
     "indice_date": "« durant l'Âge du Lien »; « Pendant près de deux mille ans, ils s'établirent sur les versants orientaux » avant l'Arrachement (An 0) → migration ~2 000 av.A. (Nation moderne: ~9 700 ap.A.)",
-    "fiche": "Docs/Lore/Histoires/Azoria/Kethvar.md"
+    "fiche": "Docs/Lore/Histoires/Azoria/Kethvar.md",
+    "arbitrage": "§11.b-5 : peuplement ancien de Kethvar (Loi de Pierre) ; la fondation nationale reste ~9 700 (délégation de l'auteur, 2026-09-09)",
+    "avant_type": "fondation"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0506",
@@ -67846,7 +67613,7 @@
   },
   {
    "id": "fac-0587",
-   "fact_type": "fondation",
+   "fact_type": "evenement",
    "subject_id": "pol-0038",
    "object_id": null,
    "start_year": -14500,
@@ -67859,12 +67626,15 @@
    "seq": 0,
    "label": "Émergence de Pyrevane par « désobéissance ritualisée » lors de la fragmentation du Dominat de Pyrevaste (~14 500 av.A) : les Forge-Temples de l'ouest cessent d'envoyer leurs forge-liturgies à la cour du sud-est. Existe « sans avoir été instituée ».",
    "detail": null,
-   "data": null,
+   "data": {
+    "arbitrage": "§11.b-6 : émergence de Pyrevane, trait canon (« existe sans avoir été instituée ») ; la fondation politique reste ~9 800 (délégation de l'auteur, 2026-09-09)",
+    "avant_type": "fondation"
+   },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0588",
@@ -68078,7 +67848,7 @@
    "fact_type": "naissance",
    "subject_id": "per-0094",
    "object_id": null,
-   "start_year": 10024,
+   "start_year": 10037,
    "start_precision": "estimation",
    "start_circa": 1,
    "end_year": null,
@@ -68090,13 +67860,20 @@
    "detail": null,
    "data": {
     "calendrier": "sillage",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.b-1 : naissance arbitrée en Sillage 88",
+     "avant": {
+      "start_year": 10024
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0597",
@@ -68331,13 +68108,15 @@
     "methode": "contexte",
     "confiance": "basse",
     "indice_date": "Règne du premier roi-pyromancien non daté ; même fourchette que la fondation de Brumaria (analogie Arkhen ~9 400 / Pyrevane ~9 800 ap.A).",
-    "fiche": "Docs/Lore/Histoires/Cendara/Brumaria.md"
+    "fiche": "Docs/Lore/Histoires/Cendara/Brumaria.md",
+    "fourchette": true,
+    "arbitrage": "§11.b-12 : fenêtre d'incertitude, pas une durée de règne (délégation de l'auteur, 2026-09-09)"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0606",
@@ -69642,13 +69421,15 @@
     "methode": "contexte",
     "confiance": "basse",
     "indice_date": "Idem fac-0227 : Protectorat d'Haldros ~8 200 ap.A ↔ fondation de Haldria ~9 300 ap.A ; le corpus ne tranche pas où placer le règne du premier roi.",
-    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md"
+    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md",
+    "fourchette": true,
+    "arbitrage": "§11.b-12 : fenêtre d'incertitude, pas une durée de règne (délégation de l'auteur, 2026-09-09)"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0655",
@@ -73245,13 +73026,15 @@
     "methode": "contexte",
     "confiance": "basse",
     "indice_date": "Le GDD dit le Pacte « scellé en des temps que nul ne sait dater » ; fourchette par analogie avec la consolidation des nations d'Ilthara (Drakora 9 100 → Pyrtara 9 650).",
-    "fiche": "Docs/Lore/Histoires/Ilthara/Ackerna.md"
+    "fiche": "Docs/Lore/Histoires/Ilthara/Ackerna.md",
+    "fourchette": true,
+    "arbitrage": "§11.b-12 : fenêtre d'incertitude, pas une durée de règne (délégation de l'auteur, 2026-09-09)"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0785",
@@ -73390,13 +73173,15 @@
     "methode": "contexte",
     "confiance": "basse",
     "indice_date": "Vytha précède l'Ère de l'Illusion Libre puis le Voile ; la Conféd. des Rêves Nommés tombe ~9 200 et Vytharia naît ~9 400 : sa communauté s'inscrit dans cet intervalle.",
-    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md"
+    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md",
+    "fourchette": true,
+    "arbitrage": "§11.b-12 : fenêtre d'incertitude, pas une durée de règne (délégation de l'auteur, 2026-09-09)"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0790",
@@ -73448,13 +73233,15 @@
     "methode": "contexte",
     "confiance": "basse",
     "indice_date": "Warenthor est absent de la table des 36 nations ; fourchette par analogie avec les fondations des nations voisines d'Ilthara (Drakora 9 100 → Pyrtara 9 650).",
-    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md"
+    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md",
+    "fourchette": true,
+    "arbitrage": "§11.b-12 : fenêtre d'incertitude, pas une durée de règne (délégation de l'auteur, 2026-09-09)"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0792",
@@ -73564,13 +73351,15 @@
     "methode": "contexte",
     "confiance": "basse",
     "indice_date": "Sylthara est absente de la table des 36 nations et aucune date n'apparaît ; fourchette par analogie avec la consolidation des nations d'Ilthara à la fin de l'Ère VI.",
-    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md"
+    "fiche": "Docs/Lore/Chronologie/Era 6 - L'Ère des Nations.md",
+    "fourchette": true,
+    "arbitrage": "§11.b-12 : fenêtre d'incertitude, pas une durée de règne (délégation de l'auteur, 2026-09-09)"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0796",
@@ -73622,13 +73411,15 @@
     "methode": "contexte",
     "confiance": "basse",
     "indice_date": "Restauration « pendant un siècle » après le Déclin, lui-même après « des siècles de prospérité » depuis 9 200 ; les sceaux de Theldryn sont « vieux de siècles » au présent.",
-    "fiche": "Docs/Lore/Histoires/Ilthara/Gryndor.md"
+    "fiche": "Docs/Lore/Histoires/Ilthara/Gryndor.md",
+    "fourchette": true,
+    "arbitrage": "§11.b-12 : fenêtre d'incertitude, pas une durée de règne (délégation de l'auteur, 2026-09-09)"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0798",
@@ -75857,7 +75648,7 @@
   {
    "id": "fac-0880",
    "fact_type": "mort",
-   "subject_id": "per-0200",
+   "subject_id": "per-0913",
    "object_id": null,
    "start_year": 10149,
    "start_precision": "estimation",
@@ -75881,7 +75672,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0881",
@@ -76256,7 +76047,7 @@
   },
   {
    "id": "fac-0895",
-   "fact_type": "fondation",
+   "fact_type": "evenement",
    "subject_id": "pol-0039",
    "object_id": "lie-0013",
    "start_year": 9560,
@@ -76275,13 +76066,15 @@
     "methode": "corpus-deduit",
     "confiance": "moyenne",
     "indice_date": "Confédération née de l'accord d'après la bataille ; à Brennvar « après la victoire du Fjord Gelé... Vers l'an 9 560 ap.A, Brenna réduisit le rituel ». (Table Ère VI : ~9 400.)",
-    "fiche": "Docs/Lore/Histoires/Ulinor/Skaldoria.md"
+    "fiche": "Docs/Lore/Histoires/Ulinor/Skaldoria.md",
+    "arbitrage": "§11.b-9 : réorganisation confédérale de Skaldoria (accord du Ralthyn) ; la fondation reste ~9 400 (délégation de l'auteur, 2026-09-09)",
+    "avant_type": "fondation"
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0896",
@@ -77525,7 +77318,7 @@
    "fact_type": "mort",
    "subject_id": "per-0094",
    "object_id": null,
-   "start_year": 10087,
+   "start_year": 10086,
    "start_precision": "annee",
    "start_circa": 0,
    "end_year": null,
@@ -77537,13 +77330,20 @@
    "detail": null,
    "data": {
     "calendrier": "sillage",
-    "source_date": "libellé"
+    "source_date": "libellé",
+    "correction": {
+     "date": "2026-09-09",
+     "motif": "§11.b-1 : mort arbitrée en Sillage 137, la fuite de l'apprenti déborde sur 138",
+     "avant": {
+      "start_year": 10087
+     }
+    }
    },
    "source_id": "src-0001",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-0944",
@@ -79808,7 +79608,7 @@
   {
    "id": "fac-1028",
    "fact_type": "fondation",
-   "subject_id": "pol-0007",
+   "subject_id": "pol-0124",
    "object_id": "per-0125",
    "start_year": 9977,
    "start_precision": "estimation",
@@ -79832,7 +79632,7 @@
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-1029",
@@ -85537,7 +85337,7 @@
   },
   {
    "id": "fac-1234",
-   "fact_type": "fondation",
+   "fact_type": "evenement",
    "subject_id": "pol-0022",
    "object_id": null,
    "start_year": 9499,
@@ -85556,13 +85356,15 @@
     "recit_uid": "chroniques:29:promulgation-de-l-edit-de-celestia",
     "chapitre": 29,
     "jour": null,
-    "confiance": "moyenne"
+    "confiance": "moyenne",
+    "arbitrage": "§11.b-2 : la promulgation de l'Édit est un événement de Caeloria, pas sa fondation (délégation de l'auteur, 2026-09-09)",
+    "avant_type": "fondation"
    },
    "source_id": "oeu-0013",
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-08-26T00:00:00.000Z",
-   "updated_at": "2026-08-26T00:00:00.000Z"
+   "updated_at": "2026-09-09T00:00:00.000Z"
   },
   {
    "id": "fac-1235",
@@ -102282,7 +102084,7 @@
    "id": "lnk-1268",
    "rel_type": "conjoint-de",
    "from_id": "per-0480",
-   "to_id": "per-0200",
+   "to_id": "per-0914",
    "start_year": null,
    "end_year": null,
    "label": null,
@@ -108102,7 +107904,7 @@
    "id": "lnk-1753",
    "rel_type": "parent-de",
    "from_id": "per-0775",
-   "to_id": "per-0200",
+   "to_id": "per-0913",
    "start_year": null,
    "end_year": null,
    "label": null,
@@ -109073,7 +108875,7 @@
   {
    "id": "lnk-1834",
    "rel_type": "lie-a",
-   "from_id": "per-0200",
+   "from_id": "per-0913",
    "to_id": "ter-0102",
    "start_year": null,
    "end_year": null,
@@ -118097,7 +117899,7 @@
   {
    "id": "lnk-2586",
    "rel_type": "situe-dans",
-   "from_id": "lie-0214",
+   "from_id": "lie-0969",
    "to_id": "pol-0006",
    "start_year": null,
    "end_year": null,
@@ -126301,6 +126103,102 @@
    "data": null,
    "source_id": "oeu-0013",
    "status": "canon"
+  },
+  {
+   "id": "lnk-3270",
+   "rel_type": "a-ne-pas-confondre-avec",
+   "from_id": "per-0200",
+   "to_id": "per-0913",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
+  },
+  {
+   "id": "lnk-3271",
+   "rel_type": "a-ne-pas-confondre-avec",
+   "from_id": "per-0200",
+   "to_id": "per-0914",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
+  },
+  {
+   "id": "lnk-3272",
+   "rel_type": "a-ne-pas-confondre-avec",
+   "from_id": "per-0913",
+   "to_id": "per-0914",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
+  },
+  {
+   "id": "lnk-3273",
+   "rel_type": "fonde",
+   "from_id": "per-0125",
+   "to_id": "pol-0124",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
+  },
+  {
+   "id": "lnk-3274",
+   "rel_type": "situe-dans",
+   "from_id": "pol-0124",
+   "to_id": "pol-0007",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
+  },
+  {
+   "id": "lnk-3275",
+   "rel_type": "capitale-de",
+   "from_id": "lie-0614",
+   "to_id": "pol-0124",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
+  },
+  {
+   "id": "lnk-3276",
+   "rel_type": "situe-dans",
+   "from_id": "lie-0969",
+   "to_id": "lie-0394",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
+  },
+  {
+   "id": "lnk-3277",
+   "rel_type": "a-ne-pas-confondre-avec",
+   "from_id": "lie-0214",
+   "to_id": "lie-0969",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
   }
  ],
  "aliases": [
@@ -128253,6 +128151,46 @@
    "from_year": null,
    "to_year": null,
    "meaning": "graphie de la carte d'origine"
+  },
+  {
+   "id": "ali-0196",
+   "entity_id": "per-0200",
+   "value": "Kyra",
+   "alias_status": "desambig",
+   "era_id": null,
+   "from_year": null,
+   "to_year": null,
+   "meaning": "fille d'Aldren Voss, Glintaris"
+  },
+  {
+   "id": "ali-0197",
+   "entity_id": "per-0913",
+   "value": "Kyra",
+   "alias_status": "desambig",
+   "era_id": null,
+   "from_year": null,
+   "to_year": null,
+   "meaning": "forgeronne d'Ardentris, fille de Velya"
+  },
+  {
+   "id": "ali-0198",
+   "entity_id": "per-0914",
+   "value": "Kyra",
+   "alias_status": "desambig",
+   "era_id": null,
+   "from_year": null,
+   "to_year": null,
+   "meaning": "épouse d'Aldren de Thalor"
+  },
+  {
+   "id": "ali-0199",
+   "entity_id": "lie-0969",
+   "value": "Velmaris",
+   "alias_status": "desambig",
+   "era_id": null,
+   "from_year": null,
+   "to_year": null,
+   "meaning": "village de pêcheurs de perles du Lagosaim (Seraphia)"
   }
  ],
  "readings": [

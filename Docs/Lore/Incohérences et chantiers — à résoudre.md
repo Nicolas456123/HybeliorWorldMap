@@ -349,10 +349,65 @@ attrapées comme « Sillage 9 », années de contexte) et les contradictions
 attestées du §11.b (Tessar, Kyra), qui relèvent de l'arbitrage, pas de la
 correction.
 
-### 11.b Contradictions du lore — arbitrage d'auteur requis
+### 11.b Contradictions du lore — arbitrées (2026-09-09, par délégation)
 
-Des dates ou des faits **attestés des deux côtés** ; rien à corriger
-mécaniquement.
+**Statut : résolu.** L'auteur a délégué l'arbitrage (« tranche au plus
+logique ») ; les douze verdicts, motivés, sont enregistrés dans l'interface
+d'arbitrage et appliqués au graphe par **`scripts/arbitrer-11b.js`**
+(idempotent, gardé par les valeurs attendues, provenance `data.correction` /
+`data.arbitrage` sur chaque fait touché). Verdicts :
+
+1. **Tessar Veynd** — né en **Sillage 88** (le récit précis — lieu, famille,
+   âge à la mort — l'emporte sur « vers 75 », dérivé d'un âge estimé au
+   sermon) ; mort en **137**, la fuite de l'apprenti « en 138 » suit une
+   mort de fin d'année.
+2. **Édit de Celestia** — promulgué par le **Premier Conclave, an −450 du
+   Sillage (9 499 ap.A)** : deux sources indépendantes convergent (fiche
+   religieuse ~9 500, récit an −450). `fac-0299`/`0399`/`0205` recalés ;
+   `fac-1234` (la promulgation, typée fondation *de Caeloria*) retypé
+   événement.
+3. **Kyra** — c'étaient **trois** personnes : la fille d'Aldren Voss
+   (Glintaris, † à 11 ans, garde `per-0200`, renommée « Kyra (de
+   Glintaris) »), la forgeronne d'Ardentris fille de Velya (`per-0913`),
+   l'épouse d'Aldren de Thalor (`per-0914`). Faits, liens familiaux et
+   conjugaux répartis ; alias « Kyra » posés en désambiguïsation ;
+   `a-ne-pas-confondre-avec` en triangle.
+4. **Civilisations antiques** — **les fiches font foi** : les 16 faits-seed
+   sans libellé (table du premier import) supprimés ; les huit périodes
+   recalées sur les dates des fiches (Alkarath −16 000→−11 500, Endara
+   −9 000→−5 000, Ithalorn −7 000→−3 500…).
+5. **Kethvar** — deux temps : le **peuplement** (Loi de Pierre, ~−2 000,
+   `fac-0505` retypé événement) et la **fondation nationale** (~9 700).
+6. **Pyrevane** — **trait canon conservé** (« existe sans avoir été
+   instituée ») : l'émergence de ~−14 500 devient un événement, la
+   fondation politique reste ~9 800 ; le paradoxe vit dans les libellés.
+7. **Mirathi** — fondée par le **Sanctuaire (~9 400)** ; l'érection en
+   province de Vytharia (~9 800) devient un événement.
+8. **Elarath 9 996, Solmaris 9 961** — le récit fondateur propre fait foi
+   (« l'an 47 » de la fragmentation de Morveth ; la Première Veillée) ;
+   les estimations de succession (~9 800) recalées.
+9. **Skaldoria** — fondée ~9 400 ; l'accord du Ralthyn (9 560) est une
+   **réorganisation confédérale** (retypé événement).
+10. **Ligue des Marchands** — institution propre (`pol-0124`, dans
+    Tyndara) : `fac-1028` déplacé, Selyra la fonde, Fablioris en capitale.
+11. **Velmaris** — il y a **deux Velmaris** : la ville du soufre reste à
+    Solmaris ; le **village de pêcheurs de perles du Lagosaim (Seraphia)**,
+    découvert dans la fiche Seraphia, devient `lie-0969` et reprend le lien
+    vers Seraphia. La ville-étalon du calage carte est donc bien à Solmaris.
+12. **Règnes multiséculaires** — **fenêtres d'incertitude**, pas des durées
+    (aucun n'est canonisé « longévité inexpliquée », contrairement à
+    Verithan) : les huit faits marqués `data.fourchette = true`. ⚠ Chantier
+    d'affichage : la Fresque et les fiches doivent apprendre à ne pas
+    rendre une fourchette comme une durée de règne.
+
+**Observation de bordure (hors arbitrage).** Les ~40 paires de fondations
+restantes suivent le motif *précurseur* voulu (« Province sud de Tharnok »,
+« Berceau de l'Eau »…) : des faits d'histoire profonde du territoire, typés
+`fondation` par l'import d'origine. Même remède que 5/7/9 si l'auteur le
+souhaite — les retyper `evenement` en masse — mais c'est une décision de
+**modèle**, pas de lore ; laissée ouverte.
+
+Le texte d'origine des douze points est conservé ci-dessous comme trace.
 
 1. **Tessar Veynd, deux naissances.** « Né vers 75 » (quarante-six ans au
    sermon de 121 — `fac-0187`/`fac-0596`) vs « né en Sillage 88 » (mort à
