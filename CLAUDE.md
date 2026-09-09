@@ -62,7 +62,8 @@ antérieur au réglage) restait bloquée en 403.
    dans la politique réseau.
 
 Chantiers suivants (rappel) : surfaces manquantes d'Iskara, Ackerna,
-Baelor-Prime, Valoria (graines extract-pays) ; arbitrages No man's land
-Azoria/Cestra (marqueurs permutés) et Caeloria→Azoria ; cartes historiques
-par ère (jeux `era_id` dans monde-contours) ; bake overlay→base ;
-embeddings locaux pour la recherche sémantique.
+Baelor-Prime, Valoria (graines extract-pays) ; arbitrage No man's land
+Azoria/Cestra (marqueurs permutés — Caeloria→Azoria est réglé, §11.c) ;
+cartes historiques par ère (jeux `era_id` dans monde-contours) ; bake
+overlay→base ; embeddings locaux pour la recherche sémantique ;
+affichage `data.fourchette` (règnes-fenêtres) et capitales anciennes.

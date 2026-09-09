@@ -476,7 +476,56 @@ Le texte d'origine des douze points est conservé ci-dessous comme trace.
     ne permet pas de les distinguer → marquer les fourchettes (`data`) ou
     élaguer.
 
-### 11.c Structure du graphe — typages et doublons à réparer
+### 11.c Structure du graphe — réparé (2026-09-09)
+
+**Statut : résolu**, par **`scripts/reparer-11c.js`** (idempotent, tout
+tracé en `data.reparation`, libellés des faits fusionnés conservés dans
+`data.fusion`). Sauvegarde avant/après dans l'historique git. Bilan :
+
+- **Fusions** : la nation Dhalvoria récupère tout ce que portait
+  l'événement homonyme (dont sa vraie fondation ~9 900) ; Feylor, Zarnith
+  et Frosthal redeviennent des lieux (résumés et faits transférés,
+  Frosthal rattachée à Elarian) ; le double vide de la Fédération de
+  Morveth supprimé ; **l'Empire d'Evertia et la nation Evertia ne font
+  plus qu'un** (même capitale Caëspia, même Impératrice — alias posé), et
+  Thalmaris/Sylvara redeviennent des nations sœurs du continent.
+- **79 faits en double fusionnés** (règnes, naissances, morts des deux
+  passes d'import) ; la fuite de l'apprenti de Tessar retypée événement.
+  Restent 3 paires *voulues* (objets différents = deux rôles, ex. Brenna
+  cheffe du Clan du Loup et fondatrice de la Confédération).
+- **11 rattachements continentaux tranchés par les fiches `Pays/`** :
+  Tyndara→Onara, Haldria→Endora, **Caeloria→Azoria** (chantier CLAUDE.md
+  réglé), Vytharia/Lunasar/Mirathi→Ilthara (l'île de Nysaria restant à
+  Celethor), **Torkam→Alkaran**, le Temple des Flammes Éternelles ramené
+  à Ilnara seule, Windora purgée de son reliquat Thalmaris (résumé
+  compris). **0 entité à cheval sur deux continents** (57 avant).
+- **No Man's Land homogénéisés** : Celethor et Cestra retypés
+  `entite-politique` genre non-état, comme Azoria (le canon les compte
+  parmi les 47 nations). ⚠ La permutation suspectée des *marqueurs* NML
+  Azoria/Cestra reste un arbitrage d'auteur (CLAUDE.md).
+- **Capitales-seed** : les cinq situées dans leur nation ; Lithanel,
+  Navoria (engloutie An 0, fin posée) et Everthor-Prime qualifiées
+  « capitale ancienne » face aux capitales actuelles des fiches (Trelios,
+  Folgrad, Ostarith).
+- **0 règne orphelin** (13 avant) : rattachés à Kryostra, Glacoria,
+  Thyldor, Galdryn, Mythralis, Eridorn, et aux tribus Jentar/Folinor
+  (lignées — assumé) ; la Tyrannie des Cendres retypée événement de
+  Drahk'Nor.
+- **0 homonymie non balisée** (30 avant) : 17 `a-ne-pas-confondre-avec`
+  posés ; les doublons de facettes (Vael'Ur, Cœur de Cendra, Chamanes des
+  Brumes, Verithani, Étranger des Heures, Fragment #3) reliés `lie-a`
+  « à fusionner au bake » ; l'Arrachement et la Résonance balisés
+  « concept + événement, facettes voulues ».
+
+**Restes assumés** : les faits-précurseurs typés `fondation` (~40, motif
+voulu — cf. fin du §11.b) ; les doublons de fondation à date égale
+(Tharnok, Forgon, Drahk'Nor, Lunasar… — attestations multiples, bake) ;
+l'affichage (Fresque/fiches) doit encore apprendre `data.fourchette` et
+les capitales anciennes.
+
+Le texte d'origine est conservé ci-dessous comme trace.
+
+#### Texte d'origine (avant réparation)
 
 1. **La nation Dhalvoria vit dans un événement.** `evt-0166` (« Dhalvoria »)
    porte la capitale (Dhalvora, `lnk-2855`), neuf villes `situe-dans`, deux
