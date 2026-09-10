@@ -49,9 +49,21 @@ politique réseau, ou demander à l'auteur une capture de la carte zoomée
 (côte de Solmaris / Velmaris).
 
 Chantiers suivants (rappel) : cartes historiques par ère (jeux `era_id`
-dans monde-contours) ; bake overlay→base ; embeddings locaux pour la
-recherche sémantique. (Marqueurs NML Azoria/Cestra : permutés, échangés
-le 2026-09-10 — §10 réglé, 0 conflit géo restant.)
+dans monde-contours) ; embeddings locaux pour la recherche sémantique.
+(Marqueurs NML Azoria/Cestra : permutés, échangés le 2026-09-10 — §10
+réglé, 0 conflit géo restant.)
+
+**Bake overlay→base — outillé (2026-09-10), en attente d'accès Turso.**
+`scripts/bake-overlay.js` verse l'overlay dans `data/kg-base.json` avec
+la sémantique exacte du site (`kg-core.mergeGraph`), audit daté dans
+`data/bakes/`, purge Turso séparée et explicite (`--purge`). Testé de
+bout en bout sur dump synthétique (`--dry-run`, `--base`, tombstones).
+Pour l'exécuter en vrai, au choix : (a) définir `TURSO_URL` et
+`TURSO_AUTH_TOKEN` dans les variables de l'environnement Claude Code ET
+autoriser le domaine de la base (…turso.io) dans la politique réseau ;
+(b) fournir un export JSON (`SELECT kind,id,json FROM kg_overlay` +
+`SELECT kind,id FROM kg_deletes`) et lancer `--dump export.json`.
+Ensuite : committer base+index+bakes, déployer, puis `--purge`.
 Faits les 2026-09-10 : affichage `data.fourchette` et capitales
 anciennes ; surfaces manquantes (Iskara, Ackerna, Valoria + Seraphia,
 Baelor-Prime via la côte de son île — 30 pays au total). Restent non
