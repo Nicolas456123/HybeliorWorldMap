@@ -48,9 +48,15 @@ vérification au pixel devient un jour utile : ouvrir le domaine dans la
 politique réseau, ou demander à l'auteur une capture de la carte zoomée
 (côte de Solmaris / Velmaris).
 
-Chantiers suivants (rappel) : surfaces manquantes d'Iskara, Ackerna,
-Baelor-Prime, Valoria (graines extract-pays) ; arbitrage No man's land
-Azoria/Cestra (marqueurs permutés — Caeloria→Azoria est réglé, §11.c) ;
-cartes historiques par ère (jeux `era_id` dans monde-contours) ; bake
+Chantiers suivants (rappel) : arbitrage No man's land Azoria/Cestra
+(marqueurs permutés — Caeloria→Azoria est réglé, §11.c) ; cartes
+historiques par ère (jeux `era_id` dans monde-contours) ; bake
 overlay→base ; embeddings locaux pour la recherche sémantique.
-(L'affichage `data.fourchette` et capitales anciennes est fait, 2026-09-10.)
+Faits les 2026-09-10 : affichage `data.fourchette` et capitales
+anciennes ; surfaces manquantes (Iskara, Ackerna, Valoria + Seraphia,
+Baelor-Prime via la côte de son île — 30 pays au total). Restent non
+extractibles de « Hybelior Pays.png » : Caeloria (territoire blanc,
+îles célestes), Warenthor (aplat indiscernable), les No Man's Land ;
+l'île de Baelor n'est qu'un blob de 33 unités² dans continents-trace.svg
+(Thyldris tombe en mer) — à compléter dans le tracé si l'île doit
+grandir.

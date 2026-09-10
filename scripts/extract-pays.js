@@ -46,11 +46,25 @@ const S = 2653, SCL = 2.64937, TX = 1347.6, TY = 1342.4;
     const cap = byId[r.from_id];
     if (cap && cap.data && cap.data.coord_x != null) capDe[r.to_id] = cap;
   }
+  // institutions, ligues, conseils… n'ont pas de territoire à extraire
+  const SANS_TERRITOIRE = new Set(['institution', 'ligue', 'guilde', 'conseil', 'mouvement', 'faction', 'organisation']);
   const nations = base.entities
     .filter((e) => e.type === 'entite-politique' && ((e.data && e.data.coord_x != null) || capDe[e.id]))
+    .filter((e) => !(e.data && SANS_TERRITOIRE.has(e.data.genre)))
     .map((e) => {
       const g = capDe[e.id] || e;
-      return { id: e.id, nom: e.name, wx: +g.data.coord_x, wy: +g.data.coord_y, viaCap: !!capDe[e.id] };
+      // candidats de graine, du plus sûr au moins sûr : capitale, marqueur
+      // pays, puis villes positionnées de la nation — l'échantillonneur
+      // choisit le premier dont la couleur locale est franche (une capitale
+      // posée sur une bande de terrain ou un halo d'étiquette ment).
+      const candidats = [{ src: capDe[e.id] ? 'capitale' : 'marqueur', wx: +g.data.coord_x, wy: +g.data.coord_y }];
+      if (capDe[e.id] && e.data && e.data.coord_x != null) candidats.push({ src: 'marqueur', wx: +e.data.coord_x, wy: +e.data.coord_y });
+      for (const r of base.relations) {
+        if (r.rel_type !== 'situe-dans' || r.to_id !== e.id || candidats.length >= 8) continue;
+        const v = byId[r.from_id];
+        if (v && v.type === 'lieu' && v.data && v.data.coord_x != null) candidats.push({ src: v.name, wx: +v.data.coord_x, wy: +v.data.coord_y });
+      }
+      return { id: e.id, nom: e.name, wx: +g.data.coord_x, wy: +g.data.coord_y, viaCap: !!capDe[e.id], candidats };
     });
   console.log('nations avec graine :', nations.length);
 
@@ -75,23 +89,62 @@ const S = 2653, SCL = 2.64937, TX = 1347.6, TY = 1342.4;
     const estBlanc = (c) => c[0] > 225 && c[1] > 225 && c[2] > 225;
     const estTerre = (i) => dist(rgb(i), ocean) > 40;
 
-    // couleurs de graine (médiane 9×9 hors rouge/blanc/océan)
+    // couleur de graine : médiane ITÉRÉE hors rouge/blanc/océan — médiane du
+    // disque, puis médiane des seuls pixels proches d'elle (vire halo de
+    // pastille et étiquettes sans dépendre d'une quantification fragile).
+    // Le CENTRE (r≤6) prime quand il est franc : un marqueur posé par
+    // l'auteur sur son aplat est la meilleure vérité, même dans une poche
+    // (cas Elarian, dont l'entour capte la forêt voisine).
+    function medianeIteree(px, py, r1) {
+      const pix = [];
+      for (let dy = -r1; dy <= r1; dy++) for (let dx = -r1; dx <= r1; dx++) {
+        if (dx * dx + dy * dy > r1 * r1) continue;
+        const c = rgb((py + dy) * S + (px + dx));
+        if (estRouge(c) || estBlanc(c) || dist(c, ocean) <= 40) continue;
+        pix.push(c);
+      }
+      if (!pix.length) return null;
+      let med = [0, 1, 2].map((k) => pix.map((c) => c[k]).sort((a, b) => a - b)[Math.floor(pix.length / 2)]);
+      const proches = pix.filter((c) => dist(c, med) <= 40);
+      if (proches.length >= 8) med = [0, 1, 2].map((k) => proches.map((c) => c[k]).sort((a, b) => a - b)[Math.floor(proches.length / 2)]);
+      const dedans = pix.filter((c) => dist(c, med) <= TOL).length;
+      return { couleur: med, homog: dedans / pix.length, n: pix.length };
+    }
+    function echantillonner(wx, wy) {
+      const px = Math.round(SCL * wx + TX), py = Math.round(SCL * wy + TY);
+      if (px < 21 || py < 21 || px >= S - 21 || py >= S - 21) return null;
+      const centre = medianeIteree(px, py, 6);
+      if (centre && centre.n >= 25 && centre.homog >= 0.7) return { px, py, ...centre };
+      const disque = medianeIteree(px, py, 20);
+      if (!disque || disque.n < 30) return null;
+      return { px, py, ...disque };
+    }
+    // Vote pondéré entre candidats : la couleur portée par le plus de
+    // candidats (capitale/marqueur ×2, villes ×1) est celle de la nation —
+    // un candidat isolé sur une étiquette ou un terrain ne peut plus mentir.
     const graines = [];
     for (const n of nations) {
-      const px = Math.round(SCL * n.wx + TX), py = Math.round(SCL * n.wy + TY);
-      if (px < 4 || py < 4 || px >= S - 4 || py >= S - 4) continue;
-      const ech = [];
-      for (let dy = -6; dy <= 6; dy++) for (let dx = -6; dx <= 6; dx++) {
-        const i = (py + dy) * S + (px + dx);
-        const c = rgb(i);
-        if (!estRouge(c) && !estBlanc(c) && dist(c, ocean) > 40) ech.push(c);
+      const echs = [];
+      for (const cand of n.candidats) {
+        const e = echantillonner(cand.wx, cand.wy);
+        if (e) echs.push({ ...e, src: cand.src, poids: (cand.src === 'capitale' || cand.src === 'marqueur') ? 2 : 1, rang: echs.length });
       }
-      if (ech.length < 8) continue;
-      const med = [0, 1, 2].map((k) => ech.map((c) => c[k]).sort((a, b) => a - b)[Math.floor(ech.length / 2)]);
-      graines.push({ ...n, px, py, couleur: med });
+      if (!echs.length) continue;
+      let meilleur = null;
+      for (const e of echs) {
+        const groupe = echs.filter((o) => dist(o.couleur, e.couleur) <= TOL);
+        const score = groupe.reduce((s, o) => s + o.poids, 0);
+        if (!meilleur || score > meilleur.score) meilleur = { score, porteur: groupe[0] };
+      }
+      const g = meilleur.porteur;
+      graines.push({ ...n, px: g.px, py: g.py, couleur: g.couleur, srcGraine: g.src });
     }
 
-    // assignation : couleur matche → graine la plus proche parmi les candidates
+    // assignation : la graine la plus proche EN COULEUR d'abord — la distance
+    // géographique ne départage que les quasi-ex-æquo (≤ 6 de la meilleure).
+    // Sans cette priorité, deux familles de teintes voisines (ex. 121,116,97
+    // et 119,135,113, distantes de 25 pour TOL 26) se volent des pixels à
+    // travers toute la carte et découpent des bissectrices rectilignes.
     const label = new Int16Array(S * S).fill(-1);
     for (let y = 0; y < S; y++) {
       for (let x = 0; x < S; x++) {
@@ -99,9 +152,15 @@ const S = 2653, SCL = 2.64937, TX = 1347.6, TY = 1342.4;
         if (!estTerre(i)) { label[i] = -2; continue; }     // océan
         const c = rgb(i);
         if (estRouge(c) || estBlanc(c)) continue;           // points/étiquettes → dilatation
+        let dcMin = 1e9;
+        for (let g = 0; g < graines.length; g++) {
+          const dc = dist(c, graines[g].couleur);
+          if (dc < dcMin) dcMin = dc;
+        }
+        if (dcMin > TOL) continue;
         let best = -1, dBest = 1e15;
         for (let g = 0; g < graines.length; g++) {
-          if (dist(c, graines[g].couleur) > TOL) continue;
+          if (dist(c, graines[g].couleur) > dcMin + 6) continue;
           const dd = (x - graines[g].px) ** 2 + (y - graines[g].py) ** 2;
           if (dd < dBest) { dBest = dd; best = g; }
         }
@@ -123,14 +182,29 @@ const S = 2653, SCL = 2.64937, TX = 1347.6, TY = 1342.4;
     // composante connexe contenant la graine, par nation
     const masques = [];
     for (let g = 0; g < graines.length; g++) {
-      const seedI = graines[g].py * S + graines[g].px;
+      let seedI = graines[g].py * S + graines[g].px;
+      // sauvetage : la graine peut tomber pile sur une rivière, une pastille
+      // ou une étiquette comblée par un voisin — on rejoint alors le pixel de
+      // SA couleur le plus proche (spirale, rayon 60).
+      if (label[seedI] !== g) {
+        let trouve = -1;
+        for (let r = 1; r <= 60 && trouve < 0; r++) {
+          for (let dy = -r; dy <= r && trouve < 0; dy++) for (let dx = -r; dx <= r; dx++) {
+            if (Math.max(Math.abs(dx), Math.abs(dy)) !== r) continue;
+            const x = graines[g].px + dx, y = graines[g].py + dy;
+            if (x < 0 || y < 0 || x >= S || y >= S) continue;
+            if (label[y * S + x] === g) { trouve = y * S + x; break; }
+          }
+        }
+        if (trouve >= 0) seedI = trouve;
+      }
       if (label[seedI] !== g) { masques.push(null); continue; }
       const dans = new Uint8Array(S * S);
       const pile = [seedI]; dans[seedI] = 1;
       let aire = 0;
       while (pile.length) {
         const i = pile.pop(); aire++;
-        const x = i % S, y = (i / S) | 0;
+        const x = i % S;
         for (const j of [i - 1, i + 1, i - S, i + S]) {
           if (j < 0 || j >= S * S || dans[j] || label[j] !== g) continue;
           const jx = j % S; if (Math.abs(jx - x) > 1) continue;
@@ -163,7 +237,7 @@ const S = 2653, SCL = 2.64937, TX = 1347.6, TY = 1342.4;
       return pts;
     }
     return graines.map((g, i) => ({
-      id: g.id, nom: g.nom, viaCap: g.viaCap,
+      id: g.id, nom: g.nom, viaCap: g.viaCap, srcGraine: g.srcGraine, couleur: g.couleur,
       aire: masques[i] ? masques[i].aire : 0,
       contour: masques[i] ? contour(masques[i].dans) : [],
     }));
@@ -198,8 +272,11 @@ const S = 2653, SCL = 2.64937, TX = 1347.6, TY = 1342.4;
   }
   const enMonde = ([px, py]) => [Math.round((px - TX) / SCL * 100) / 100, Math.round((py - TY) / SCL * 100) / 100];
 
+  // plancher à 1 200 px (~170 unités²) : en dessous, c'est un éclat
+  // d'étiquette ou de texture, pas un territoire — les vraies petites îles
+  // passent par le repli « côte d'île » ci-dessous.
   const masses = res
-    .filter((r) => r.contour.length > 20 && r.aire > 120)
+    .filter((r) => r.contour.length > 20 && r.aire > 1200)
     .map((r) => ({
       nom: r.nom, niveau: 'pays', aire: r.aire,
       points: simplifier(r.contour, 1.6).map(enMonde),
@@ -209,11 +286,40 @@ const S = 2653, SCL = 2.64937, TX = 1347.6, TY = 1342.4;
   const OUT = path.join(ROOT, 'data', 'monde-contours.json');
   const doc = JSON.parse(fs.readFileSync(OUT, 'utf8'));
   const jeu = doc.jeux.find((j) => j.era_id === null);
+
+  // Repli « côte d'île » : une nation sans aplat sur la carte Pays (île non
+  // colorée, ex. Baelor-Prime) dont un candidat de graine tombe dans une
+  // petite masse côtière SANS NOM reprend cette côte comme surface.
+  const dedans = (pt, poly) => {
+    let ok = false;
+    for (let a = 0, b = poly.length - 1; a < poly.length; b = a++) {
+      const [xa, ya] = poly[a], [xb, yb] = poly[b];
+      if ((ya > pt[1]) !== (yb > pt[1]) && pt[0] < (xb - xa) * (pt[1] - ya) / (yb - ya) + xa) ok = !ok;
+    }
+    return ok;
+  };
+  const petitesIles = jeu.masses.filter((m) => m.niveau === 'continent' && !m.nom && m.aire <= 3000);
+  const extraites = new Set(masses.map((m) => m.nom));
+  const prises = new Set();
+  for (const n of nations) {
+    if (extraites.has(n.nom)) continue;
+    let ile = null;
+    for (const cand of n.candidats) {
+      ile = petitesIles.find((m) => !prises.has(m) && dedans([cand.wx, cand.wy], m.points));
+      if (ile) break;
+    }
+    if (!ile) continue;
+    prises.add(ile);
+    masses.push({ nom: n.nom, niveau: 'pays', aire: ile.aire, source: 'cote-ile', points: ile.points.map((p) => p.slice()) });
+    console.log(`  île : ${n.nom} reprend la côte de son île (aire ${ile.aire})`);
+  }
+
   jeu.masses = jeu.masses.filter((m) => m.niveau !== 'pays').concat(masses);
   fs.writeFileSync(OUT, JSON.stringify(doc) + '\n');
 
   console.log(`✔ ${masses.length} surfaces nationales extraites`);
-  for (const m of masses.sort((a, b) => b.aire - a.aire).slice(0, 30)) console.log('  ', m.nom.padEnd(24), String(m.points.length).padStart(4), 'sommets');
-  const rates = res.filter((r) => !(r.contour.length > 20 && r.aire > 120)).map((r) => r.nom);
+  for (const m of masses.sort((a, b) => b.aire - a.aire).slice(0, 40)) console.log('  ', m.nom.padEnd(24), String(m.points.length).padStart(4), 'sommets');
+  const dansMasses = new Set(masses.map((m) => m.nom));
+  const rates = res.filter((r) => !dansMasses.has(r.nom)).map((r) => r.nom);
   if (rates.length) console.log('non extraites :', rates.join(', '));
 })();
