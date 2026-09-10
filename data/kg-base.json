@@ -34819,12 +34819,14 @@
      "indice": "En l'an 251 — l'année du passage de Sorin Valthen à Lysorn —, Brynda demanda au commandant l'autorisation de quitter Valdris pour fonder un campement "
     },
     "genre": "non-etat",
-    "reparation": "§11.c-6 (2026-09-09) : le canon compte les No Man's Land parmi les 47 nations — aligné sur pol-0109"
+    "reparation": "marqueur repris de la carte d'origine (coordinate_overrides) — jamais importé (sync arbitrages carte, 2026-09-10)",
+    "coord_x": -57.3,
+    "coord_y": -369.2
    },
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-09-09T00:00:00.000Z"
+   "updated_at": "2026-09-10T00:00:00.000Z"
   },
   {
    "id": "per-0832",
@@ -47007,14 +47009,19 @@
    "summary": null,
    "body": "Village de forgerons spécialisés dans les machines de siège (catapultes, béliers, tours de siège), les plus redoutés d'Onara. Spécialisation née de la Guerre des Cent-Jours, lorsque Volkar isola les ingénieurs les plus créatifs dans un atelier dédié. Culture locale : obsession de la « destruction élégante » (un mur abattu proprement, sans effort inutile).\n- Population : Village\n- Région : Mondack\n\n*Extrait de la fiche de Mosrack.*\n",
    "data": {
-    "echelle": "cite",
-    "coord_x": -415.032962871781,
-    "coord_y": -103.782065242941
+    "echelle": "bourg",
+    "coord_x": 330.7,
+    "coord_y": 35.6,
+    "reparation": "la restauration de mai avait pris le mauvais homonyme de la carte (−413.6, −100.8, sans fiche) ; le vrai Mordock est le village de Mosrack (sync arbitrages carte, 2026-09-10)",
+    "coord_avant": {
+     "coord_x": -415.032962871781,
+     "coord_y": -103.782065242941
+    }
    },
    "status": "canon",
    "disclosure": "interne",
    "created_at": "2026-07-17T00:00:00.000Z",
-   "updated_at": "2026-07-17T00:00:00.000Z"
+   "updated_at": "2026-09-10T00:00:00.000Z"
   },
   {
    "id": "lie-0671",
@@ -124530,6 +124537,18 @@
    "rel_type": "a-ne-pas-confondre-avec",
    "from_id": "per-0796",
    "to_id": "lie-0207",
+   "start_year": null,
+   "end_year": null,
+   "label": null,
+   "data": null,
+   "source_id": null,
+   "status": "canon"
+  },
+  {
+   "id": "lnk-3308",
+   "rel_type": "situe-dans",
+   "from_id": "lie-0670",
+   "to_id": "pol-0025",
    "start_year": null,
    "end_year": null,
    "label": null,

@@ -1,0 +1,46 @@
+{
+ "note": "lignes avant la synchro des arbitrages vers coordinate_overrides",
+ "avant": [
+  {
+   "name": "Folgrad",
+   "storage": "capitalesElements",
+   "coord_x": 14.798726155542,
+   "coord_y": 98.89600017212103
+  },
+  {
+   "name": "No man's land Azoria",
+   "storage": "paysElements",
+   "coord_x": 231.3,
+   "coord_y": 384.1
+  },
+  {
+   "name": "No man's land Cestra",
+   "storage": "paysElements",
+   "coord_x": -472.7,
+   "coord_y": -398.4
+  }
+ ],
+ "appliquees": [
+  {
+   "name": "No man's land Azoria",
+   "storage": "paysElements",
+   "x": 231.3,
+   "y": 384.1,
+   "motif": "arbitrage §10 : marqueurs NML permutés, échangés"
+  },
+  {
+   "name": "No man's land Cestra",
+   "storage": "paysElements",
+   "x": -472.7,
+   "y": -398.4,
+   "motif": "arbitrage §10 : marqueurs NML permutés, échangés"
+  },
+  {
+   "name": "Folgrad",
+   "storage": "capitalesElements",
+   "x": 393,
+   "y": 91,
+   "motif": "arbitrage 2026-07-18 : capitale de Mosrack, au marqueur"
+  }
+ ]
+}

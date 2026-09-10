@@ -53,17 +53,22 @@ dans monde-contours) ; embeddings locaux pour la recherche sémantique.
 (Marqueurs NML Azoria/Cestra : permutés, échangés le 2026-09-10 — §10
 réglé, 0 conflit géo restant.)
 
-**Bake overlay→base — outillé (2026-09-10), en attente d'accès Turso.**
-`scripts/bake-overlay.js` verse l'overlay dans `data/kg-base.json` avec
-la sémantique exacte du site (`kg-core.mergeGraph`), audit daté dans
-`data/bakes/`, purge Turso séparée et explicite (`--purge`). Testé de
-bout en bout sur dump synthétique (`--dry-run`, `--base`, tombstones).
-Pour l'exécuter en vrai, au choix : (a) définir `TURSO_URL` et
-`TURSO_AUTH_TOKEN` dans les variables de l'environnement Claude Code ET
-autoriser le domaine de la base (…turso.io) dans la politique réseau ;
-(b) fournir un export JSON (`SELECT kind,id,json FROM kg_overlay` +
-`SELECT kind,id FROM kg_deletes`) et lancer `--dump export.json`.
-Ensuite : committer base+index+bakes, déployer, puis `--purge`.
+**Bake overlay→base — CLOS (2026-09-10).** L'overlay kg de prod
+(`kg_overlay`/`kg_deletes`) est **vide** : aucune édition post-hoc, la
+base committée fait foi seule. `scripts/bake-overlay.js` reste prêt pour
+l'avenir (`--dry-run` d'abord ; purge séparée `--purge`). **Accès Turso
+depuis l'environnement : par « Identifiants API »** (hôte
+`hybelior-map-nicolas456123.aws-eu-west-1.turso.io`, en-tête
+Authorization Bearer) — c'est ce mécanisme qui ouvre l'hôte, PAS le champ
+variables ; `TURSO_URL`/`TURSO_AUTH_TOKEN` restent en variables pour les
+scripts. ⚠ `turso-adapter` : les entiers Hrana passent en chaîne
+(corrigé). Découvert au passage : **la carte de l'accueil (`index.html` →
+`js/map.js`) lit encore `coordinate_overrides`** — table synchronisée sur
+les arbitrages par `scripts/sync-overrides-arbitrages.js` (NML échangés,
+Folgrad→(393,91) ; et en sens inverse Mordock corrigé dans le graphe :
+village de Mosrack, le mauvais homonyme avait été restauré ; NML Celethor
+a reçu son marqueur (−57.3,−369.2)). Restent ~80 écarts uniformes de
+5-7 unités (artefact d'import de mai, sans enjeu) — ne pas « corriger ».
 Faits les 2026-09-10 : affichage `data.fourchette` et capitales
 anciennes ; surfaces manquantes (Iskara, Ackerna, Valoria + Seraphia,
 Baelor-Prime via la côte de son île — 30 pays au total). Restent non
