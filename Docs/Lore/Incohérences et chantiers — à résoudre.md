@@ -282,7 +282,19 @@ Cas concrets à traiter en priorité (échantillon) :
 
 ## 10. Positions vs rattachements — les conflits carte/fiches (cas Folgrad)
 
-**Statut : 15 conflits à arbitrer, liste exacte dans `data/geo-conflits.json`.**
+**Statut : RÉSOLU (2026-09-10) — 0 conflit restant sur 226 villes.** Le
+dernier lot (la famille « No Man's Land ») est tombé d'un coup : sur la
+carte d'origine, les étiquettes des marqueurs **NML Azoria** et **NML
+Cestra** étaient **permutées** — le marqueur « Azoria » posé en lisière
+sud du continent Cestra (−473, −398), le marqueur « Cestra » au cœur du
+continent Azoria (231, 384 — position retrouvée par triangulation sur les
+distances de `geo-conflits.json`, erreur < 1 unité), au milieu des treize
+villes que les fiches rattachent au NML d'Azoria. Arbitrage (délégué,
+2026-09-10) : **échange des deux marqueurs**, appliqué par
+`scripts/arbitrer-nml.js` (tracé `data.arbitrage`, anciennes valeurs
+conservées) ; aucun re-rattachement nécessaire — les lieux des deux NML
+étaient déjà du bon côté du monde. `geo-conflits.json` régénéré : **0
+conflit**. Le texte d'origine suit, comme trace.
 
 La carte vivante a rendu visible une contradiction entre **deux sources de l'auteur** : la position des points sur la carte d'origine (sauvegarde du 3 mai) et le rattachement des fiches. Cas découvert : **Folgrad**, capitale de **Mosrack** (Onara) selon les fiches, mais posée sur la carte **à 21 unités du marqueur d'Ulinor** (et à 381 du marqueur de Mosrack).
 
