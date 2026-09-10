@@ -65,5 +65,5 @@ Chantiers suivants (rappel) : surfaces manquantes d'Iskara, Ackerna,
 Baelor-Prime, Valoria (graines extract-pays) ; arbitrage No man's land
 Azoria/Cestra (marqueurs permutés — Caeloria→Azoria est réglé, §11.c) ;
 cartes historiques par ère (jeux `era_id` dans monde-contours) ; bake
-overlay→base ; embeddings locaux pour la recherche sémantique ;
-affichage `data.fourchette` (règnes-fenêtres) et capitales anciennes.
+overlay→base ; embeddings locaux pour la recherche sémantique.
+(L'affichage `data.fourchette` et capitales anciennes est fait, 2026-09-10.)

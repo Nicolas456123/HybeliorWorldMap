@@ -519,9 +519,15 @@ tracé en `data.reparation`, libellés des faits fusionnés conservés dans
 
 **Restes assumés** : les faits-précurseurs typés `fondation` (~40, motif
 voulu — cf. fin du §11.b) ; les doublons de fondation à date égale
-(Tharnok, Forgon, Drahk'Nor, Lunasar… — attestations multiples, bake) ;
-l'affichage (Fresque/fiches) doit encore apprendre `data.fourchette` et
-les capitales anciennes.
+(Tharnok, Forgon, Drahk'Nor, Lunasar… — attestations multiples, bake).
+
+**Affichage appliqué (2026-09-10).** La Fresque dessine désormais une
+fourchette (`data.fourchette`) en cercle creux à mi-fenêtre avec
+moustaches — plus jamais en trait de règne — et son infobulle dit
+« entre X et Y · fenêtre d'incertitude » ; `dateLabel` (fiches, Atelier
+Dirigeants) dit « entre X et Y » ; et le label propre d'une relation
+(« capitale ancienne, engloutie An 0 »…) qualifie son type sur les fiches
+au lieu d'être écrasé (`lib/kg-core.js`).
 
 Le texte d'origine est conservé ci-dessous comme trace.
 

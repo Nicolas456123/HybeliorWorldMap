@@ -1606,6 +1606,11 @@ async function vueFresque() {
   const laneY = (t) => 54 * dpr + LANES.indexOf(LANES.includes(t) ? t : 'autre') * ((H - 90 * dpr) / LANES.length);
   const COUL_FAIT = { fondation: '#8fbe9b', chute: '#d08a8a', bataille: '#d0a273', traite: '#9db3c9', evenement: '#e0c274', regne: '#c9a24b', naissance: '#a9c98f', mort: '#b3a68f', apparition: '#b89ad6', disparition: '#a795d6', autre: '#83775f' };
   const X = (an) => ((an - a0) / (a1 - a0)) * W;
+  // Une fourchette (data.fourchette) n'est pas une durée : le fait s'est
+  // produit quelque part DANS la fenêtre. On le pose à mi-fenêtre, avec
+  // ses moustaches, jamais avec le trait plein d'un règne.
+  const estFourchette = (f) => !!(f.data && f.data.fourchette && f.end_year != null && f.end_year !== f.start_year);
+  const xDeFait = (f) => estFourchette(f) ? X((f.start_year + f.end_year) / 2) : X(f.start_year);
   let survole = null, drag = null;
 
   function peindre() {
@@ -1644,14 +1649,29 @@ async function vueFresque() {
     ctx.font = `${10 * dpr}px Raleway, sans-serif`; ctx.textAlign = 'left';
     for (const t of LANES) { ctx.fillStyle = 'rgba(131,119,95,.5)'; ctx.fillText(t, 6 * dpr, laneY(t) - 8 * dpr); }
     for (const f of faits) {
-      const x = X(f.start_year);
+      const four = estFourchette(f);
+      const x = xDeFait(f);
       if (x < -10 || x > W + 10) continue;
       const y = laneY(f.fact_type);
       const actif = f === survole;
       const coul = actif ? '#f0d894' : (COUL_FAIT[f.fact_type] || '#83775f');
+      // Fenêtre d'incertitude : moustaches discrètes SOUS le marqueur.
+      if (four) {
+        const fx1 = X(f.start_year), fx2 = X(f.end_year);
+        if (fx2 - fx1 > 5 * dpr) {
+          ctx.strokeStyle = actif ? 'rgba(240,216,148,.6)' : 'rgba(131,119,95,.45)';
+          ctx.lineWidth = dpr;
+          ctx.beginPath();
+          ctx.moveTo(fx1, y); ctx.lineTo(fx2, y);
+          ctx.moveTo(fx1, y - 4 * dpr); ctx.lineTo(fx1, y + 4 * dpr);
+          ctx.moveTo(fx2, y - 4 * dpr); ctx.lineTo(fx2, y + 4 * dpr);
+          ctx.stroke();
+        }
+      }
       // Une date ESTIMÉE se dessine en cercle creux : d'un coup d'œil on sait
-      // ce qui est attesté et ce qui est situé à peu près.
-      const sur = !f.start_circa;
+      // ce qui est attesté et ce qui est situé à peu près. Une fourchette est
+      // creuse par nature.
+      const sur = !f.start_circa && !four;
       ctx.beginPath(); ctx.arc(x, y, (actif ? 6 : 3.4) * dpr, 0, 7);
       if (sur) {
         ctx.fillStyle = coul; ctx.globalAlpha = actif ? 1 : .8; ctx.fill(); ctx.globalAlpha = 1;
@@ -1663,7 +1683,7 @@ async function vueFresque() {
       // Trait de durée : seulement s'il est LISIBLE. Sinon des centaines de
       // durées de quelques dizaines d'années, larges d'un pixel à cette
       // échelle, se lisent comme un pointillé continu en travers de la ligne.
-      if (f.end_year != null && f.end_year !== f.start_year) {
+      if (!four && f.end_year != null && f.end_year !== f.start_year) {
         const x2 = X(f.end_year);
         if (x2 - x > 5 * dpr) {
           ctx.strokeStyle = 'rgba(201,162,75,.3)'; ctx.lineWidth = 2 * dpr;
@@ -1674,15 +1694,18 @@ async function vueFresque() {
       }
     }
     if (survole) {
-      const x = X(survole.start_year), y = laneY(survole.fact_type);
+      const x = xDeFait(survole), y = laneY(survole.fact_type);
       // dire d'où vient la date : attestée, lue dans une fiche, ou déduite
       const d = survole.data || {};
       const prov = d.methode === 'ordinal-interpole' ? 'rang dans la liste des dirigeants'
         : d.source_date === 'corpus-lu' ? 'lu dans le corpus'
           : d.source_date === 'inference' ? 'déduit des liens'
             : d.source_date === 'prose' ? 'résumé de la fiche' : null;
+      const quand = estFourchette(survole)
+        ? 'entre ' + anStr(survole.start_year, 1) + ' et ' + anStr(survole.end_year, 1) + " · fenêtre d'incertitude"
+        : anStr(survole.start_year, survole.start_circa) + (prov ? ' · ' + prov : '');
       const txt = (survole.subjectName || '') + ' — ' + (survole.label || survole.fact_type)
-        + ' (' + anStr(survole.start_year, survole.start_circa) + (prov ? ' · ' + prov : '') + ')';
+        + ' (' + quand + ')';
       ctx.font = `${12 * dpr}px Raleway, sans-serif`;
       const wTxt = ctx.measureText(txt).width;
       const bx = Math.min(Math.max(x - wTxt / 2 - 8 * dpr, 4 * dpr), W - wTxt - 20 * dpr);
@@ -1708,7 +1731,7 @@ async function vueFresque() {
     const mx = (ev.clientX - box.left) * dpr, my = (ev.clientY - box.top) * dpr;
     let best = null, d2min = (14 * dpr) ** 2;
     for (const f of faits) {
-      const x = X(f.start_year); if (x < 0 || x > W) continue;
+      const x = xDeFait(f); if (x < 0 || x > W) continue;
       const y = laneY(f.fact_type);
       const d2 = (x - mx) ** 2 + (y - my) ** 2;
       if (d2 < d2min) { d2min = d2; best = f; }
@@ -1748,7 +1771,7 @@ async function vueFresque() {
       const mx = p.x * dpr, my = p.y * dpr;
       let best = null, d2min = (20 * dpr) ** 2;
       for (const f of faits) {
-        const x = X(f.start_year); if (x < 0 || x > W) continue;
+        const x = xDeFait(f); if (x < 0 || x > W) continue;
         const y = laneY(f.fact_type);
         const d2 = (x - mx) ** 2 + (y - my) ** 2;
         if (d2 < d2min) { d2min = d2; best = f; }
