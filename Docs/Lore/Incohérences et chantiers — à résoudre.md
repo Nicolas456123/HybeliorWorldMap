@@ -296,6 +296,16 @@ conservées) ; aucun re-rattachement nécessaire — les lieux des deux NML
 étaient déjà du bon côté du monde. `geo-conflits.json` régénéré : **0
 conflit**. Le texte d'origine suit, comme trace.
 
+**Nouveau cas découvert le 2026-09-11 (par les cartes d'ère) — Haldria.**
+Le marqueur de Haldria (−271, 172) — et donc sa surface extraite — vit en
+plein **Ilthara**, quand ses fiches (`Pays/Endora/Haldria.md`) la disent
+d'**Endora**. Invisible aux contrôles : Haldria n'a aucune ville
+positionnée pour trancher. Arbitrage d'auteur : déplacer le bloc carte
+vers Endora (marqueur + re-extraction de surface), OU acter que la carte
+a raison (et corriger fiches + rattachement). En attendant, la surface
+« Haldria » (et le Protectorat d'Haldros / le Saint-Empire d'Endara des
+cartes d'ère qui en héritent) s'affiche à l'ouest.
+
 La carte vivante a rendu visible une contradiction entre **deux sources de l'auteur** : la position des points sur la carte d'origine (sauvegarde du 3 mai) et le rattachement des fiches. Cas découvert : **Folgrad**, capitale de **Mosrack** (Onara) selon les fiches, mais posée sur la carte **à 21 unités du marqueur d'Ulinor** (et à 381 du marqueur de Mosrack).
 
 Vérification systématique (242 villes rattachées et positionnées, comparées aux **marqueurs de pays de la carte d'origine**) : **93,4 % cohérentes**, 16 conflits, trois causes distinctes :

@@ -48,10 +48,23 @@ vérification au pixel devient un jour utile : ouvrir le domaine dans la
 politique réseau, ou demander à l'auteur une capture de la carte zoomée
 (côte de Solmaris / Velmaris).
 
-Chantiers suivants (rappel) : cartes historiques par ère (jeux `era_id`
-dans monde-contours) ; embeddings locaux pour la recherche sémantique.
-(Marqueurs NML Azoria/Cestra : permutés, échangés le 2026-09-10 — §10
-réglé, 0 conflit géo restant.)
+Chantiers suivants (rappel) : embeddings locaux pour la recherche
+sémantique. (Marqueurs NML : réglé 2026-09-10, 0 conflit géo.)
+
+**Cartes historiques par ère — FAIT (2026-09-11).**
+`scripts/generer-cartes-eres.js` génère trois jeux dans monde-contours :
+`era3_lien_empires` (réf −6 000 : 6 empires du Lien),
+`era5_grande_nuit` (réf 2 000 : Tharnok, Galenthis, Drahk'Nor, Forgon),
+`era6_nations` (réf 9 000 : 21 états — protectorats/ligues de la veille +
+nations déjà nées). Territoires = union raster des pays héritiers
+(succede-a + faits-précurseurs cités ; états sans fondation datés par la
+chute de leur prédécesseur, sinon fenêtre de veille 1 000 ans avant leurs
+successeurs — JAMAIS par data.periode, dérivée). Le curseur temporel de
+la carte les affiche sans modification de code (surfacesPourEre).
+Limites : Union des Flammes et Azor-Kerev sans territoire (leurs
+héritiers Arkhen/Pyrevane/Azoral/Kethvar/Caeloria n'ont pas de surface
+extraite) ; ⚠ Haldria : marqueur/surface sur Ilthara vs fiches Endora —
+arbitrage d'auteur (registre §10).
 
 **Bake overlay→base — CLOS (2026-09-10).** L'overlay kg de prod
 (`kg_overlay`/`kg_deletes`) est **vide** : aucune édition post-hoc, la
